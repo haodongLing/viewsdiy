@@ -1,5 +1,6 @@
 package haodong.com.views_diy.prac_animator;
 
+import android.animation.ValueAnimator;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.animation.Animation;
@@ -18,6 +19,14 @@ public class Anim1Activity extends AppCompatActivity {
         btn=findViewById(R.id.btn_anim_anim1);
         Animation animation= AnimationUtils.loadAnimation(this,R.anim.translation_to_right_circle);
         btn.startAnimation(animation);
+        ValueAnimator valueAnimator=ValueAnimator.ofInt(btn.getLayoutParams().height,100);
+        valueAnimator.setDuration(1000);
+        valueAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+            @Override
+            public void onAnimationUpdate(ValueAnimator animation) {
+
+            }
+        });
 
     }
 }
