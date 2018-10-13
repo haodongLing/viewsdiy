@@ -24,6 +24,9 @@ public class Anim1Activity extends AppCompatActivity {
         valueAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
             @Override
             public void onAnimationUpdate(ValueAnimator animation) {
+                int currentValue= (int) animation.getAnimatedValue();
+                btn.getLayoutParams().height=currentValue;
+                btn.requestLayout();
 
             }
         });
