@@ -9,10 +9,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:name=".MainActivity"></activity>
+        <activity android:name=".prac_animator.Anim1Activity">
 
         </activity>
-        <activity android:name=".prac_animator.Anim1Activity">
+        <activity android:name=".prac_remote_views.DiyPointActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
