@@ -9,6 +9,7 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/brvahprac" />
             <option value="$PROJECT_DIR$/costomviewforclock" />
             <option value="$PROJECT_DIR$/recyclerviewprac" />
           </set>

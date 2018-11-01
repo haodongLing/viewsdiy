@@ -26,6 +26,7 @@ public class MyRecyclerAdapter extends RecyclerView.Adapter<MyRecyclerAdapter.Vi
         this.mContext = mContext;
         this.mList = mList;
     }
+    
 
     @NonNull
     @Override
