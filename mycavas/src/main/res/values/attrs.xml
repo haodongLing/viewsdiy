@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="BrokenLineView">
+        <attr name="MyColor" format="color"/>
+        <attr name="Myshader" format="color"/>
+    </declare-styleable>
+</resources>

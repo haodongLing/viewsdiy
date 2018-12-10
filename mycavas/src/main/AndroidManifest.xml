@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="haodong.com.views_diy">
+    package="com.haodong.mycavas">
 
     <application
         android:allowBackup="true"
@@ -9,13 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity" />
-        <activity android:name=".prac_animator.Anim1Activity"></activity>
-        <activity android:name=".prac_remote_views.DiyPointActivity"></activity>
-        <activity android:name=".prac_point.PointActivity">
-
-        </activity>
-        <activity android:name=".paint_prac.PaintActivity">
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

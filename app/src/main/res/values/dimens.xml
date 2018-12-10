@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="dp_height_tv_tip">48dp</dimen>
+    <dimen name="sp_temperature">45sp</dimen>
+    <dimen name="sp_txt_two_day_light">18sp</dimen>
+    <dimen name="sp_txt_two_day_bold">20sp</dimen>
+    <dimen name="sp_txt_week">17sp</dimen>
+    <dimen name="sp_txt_week_date">16sp</dimen>
+    <dimen name="dp_img_week_weather_state">28dp</dimen>
+</resources>
