@@ -1,6 +1,7 @@
 package com.haodong.mycavas;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.View;
@@ -22,5 +23,6 @@ public class MyViews extends View{
 
     public MyViews(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
+
     }
 }

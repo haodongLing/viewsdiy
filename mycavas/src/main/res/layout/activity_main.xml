@@ -15,5 +15,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHeight_percent="0.5"
         />
+    <com.haodong.mycavas.chapter01.CustomCircleView
+        android:layout_width="50dp"
+        android:layout_height="50dp" />
 
 </android.support.constraint.ConstraintLayout>
