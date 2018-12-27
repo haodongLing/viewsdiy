@@ -41,7 +41,6 @@ public class CircleView extends View {
     public boolean isRestore = false;
 
 
-
     /**满级回调*/
     public RestoreCircle rc;
 
