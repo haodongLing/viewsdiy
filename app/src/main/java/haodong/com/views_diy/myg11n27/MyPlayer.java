@@ -12,9 +12,18 @@ public class MyPlayer implements MediaPlayer.OnPreparedListener,MediaPlayer.OnCo
         MediaPlayer.OnErrorListener {
     private MediaPlayer mPlayer;
     private boolean hasPrepared;
+    private void initIfNessary(){
+        if (null==mPlayer){
+            mPlayer=new MediaPlayer();
+            mPlayer.setOnErrorListener(this);
+            mPlayer.setOnCompletionListener(this);
+            mPlayer.setOnPreparedListener(this);
+        }
+    }
 
     @Override
     public void onCompletion(MediaPlayer mp) {
+        hasPrepared=false;
 
     }
 
@@ -23,8 +32,13 @@ public class MyPlayer implements MediaPlayer.OnPreparedListener,MediaPlayer.OnCo
         return false;
     }
 
+    /**
+     * 准备完成
+     * @param mp
+     */
     @Override
     public void onPrepared(MediaPlayer mp) {
+        hasPrepared=true;
 
     }
 }
