@@ -1,1 +1,7 @@
-include ':app', ':costomviewforclock', ':recyclerviewprac', ':brvahprac', ':mycavas', ':chapter1'
+include ':app',
+        ':costomviewforclock',
+        ':recyclerviewprac',
+        ':brvahprac',
+        ':mycavas',
+        ':chapter1',
+        ':viewday1'
