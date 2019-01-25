@@ -11,10 +11,10 @@
         <attr name="myBackground" format="color|reference"/>
     </declare-styleable>
     <declare-styleable name="QQStepView">
-        <attr name="outterColor" format="color"/>
-        <attr name="innerColor" format="color"/>
-        <attr name="borderWidth" format="dimension"/>
-        <attr name="fontSize" format="dimension"/>
-        <attr name="fontColor" format="color"/>
+        <attr name="stepOuterColor" format="color"/>
+        <attr name="stepInnerColor" format="color"/>
+        <attr name="stepBorderWidth" format="dimension"/>
+        <attr name="stepFontSize" format="dimension"/>
+        <attr name="stepFontColor" format="color"/>
     </declare-styleable>
 </resources>

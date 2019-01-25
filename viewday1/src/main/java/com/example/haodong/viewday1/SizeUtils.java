@@ -52,8 +52,6 @@ public class SizeUtils {
         final float fontScale = context.getResources().getDisplayMetrics().scaledDensity;
         return (int)(spValue * fontScale + 0.5f);
     }
-
-    //------------------------使用系统提供的TypedValue类进行转换--------------------
     protected int dp2px(int dp,Context context) {
         return (int)TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP,dp,context.getResources().getDisplayMetrics());
     }
