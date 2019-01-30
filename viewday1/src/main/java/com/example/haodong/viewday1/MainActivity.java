@@ -1,6 +1,8 @@
 package com.example.haodong.viewday1;
 
 import android.animation.ValueAnimator;
+import android.database.ContentObserver;
+import android.provider.Settings;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -23,6 +25,15 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         initView();
 
+        getContentResolver().registerContentObserver(Settings.Global.getUriFor(""), true, new ContentObserver() {
+
+
+
+            @Override
+            public void onChange(boolean selfChange) {
+
+            }
+        });
     }
 
     private void initView() {
