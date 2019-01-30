@@ -21,4 +21,10 @@
         <attr name="originColor" format="color"/>
         <attr name="changeColor" format="color"/>
     </declare-styleable>
+    <declare-styleable name="MyCircleScheduleView">
+        <attr name="myNormalColor" format="color"/>
+        <attr name="myScheduledColor" format="color"/>
+        <attr name="myTxtSize" format="dimension"/>
+        <attr name="myStrokeWidth" format="dimension"/>
+    </declare-styleable>
 </resources>

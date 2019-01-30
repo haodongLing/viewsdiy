@@ -38,5 +38,17 @@
         android:layout_height="50dp"
         android:text="start change"
         android:textAllCaps="false" />
+    <com.example.haodong.viewday1.day4.MyCircleScheduleView
+        android:id="@+id/myCircleView"
+        android:layout_width="100dp"
+        android:layout_height="150dp"
+        app:myNormalColor="@color/colorPrimary"
+        app:myScheduledColor="@color/colorAccent"
+        app:myTxtSize="15sp"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:id="@+id/btn2"
+        android:text="click"/>
 
 </LinearLayout>
