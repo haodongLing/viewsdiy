@@ -9,20 +9,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
-        </activity>
-        <activity android:name=".viewday2.StepViewActivity">
+        <activity android:name=".MainActivity"></activity>
+        <activity android:name=".viewday2.StepViewActivity"></activity>
+        <activity android:name=".day7.SeventhActivity">
 
         </activity>
-        <activity android:name=".day7.SeventhActivity">
+        <activity android:name=".day7.QuadViewActivity"></activity>
+        <activity android:name=".day8.Day8Activity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-        <activity android:name=".day7.QuadViewActivity">
-
         </activity>
     </application>
 
