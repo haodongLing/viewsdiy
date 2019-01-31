@@ -24,16 +24,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         initView();
-
-        getContentResolver().registerContentObserver(Settings.Global.getUriFor(""), true, new ContentObserver() {
-
-
-
-            @Override
-            public void onChange(boolean selfChange) {
-
-            }
-        });
     }
 
     private void initView() {
