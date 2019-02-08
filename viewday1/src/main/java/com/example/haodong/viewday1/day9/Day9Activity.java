@@ -2,7 +2,9 @@ package com.example.haodong.viewday1.day9;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -10,25 +12,25 @@ import com.example.haodong.viewday1.MainActivity;
 import com.example.haodong.viewday1.R;
 
 public class Day9Activity extends AppCompatActivity {
-    TabLayout mTabLayout;
-
-
+    TouchView mTouchView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_day9);
-        mTabLayout=findViewById(R.id.tab_layout);
-        mTabLayout.setmAdapter(new TabBaseAdapter() {
+        mTouchView=findViewById(R.id.touch_view);
+        mTouchView.setOnTouchListener(new View.OnTouchListener() {
             @Override
-            public int getCount() {
-                return 0;
-            }
-
-            @Override
-            public View getView(int position, ViewGroup parent) {
-                View view=LayoutInflater.from(Day9Activity.this).inflate(R.layout.item_tag,parent,false);
-                return view;
+            public boolean onTouch(View v, MotionEvent event) {
+                Log.e("TAG", "onTouch: " + event.getAction());
+                return false;
             }
         });
+        mTouchView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.e("TAG", "onClick: " );
+            }
+        });
+
     }
 }
