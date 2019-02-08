@@ -5,5 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".day9.Day9Activity">
-
+   <com.example.haodong.viewday1.day9.TabLayout
+       android:id="@+id/tab_layout"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"/>
 </android.support.constraint.ConstraintLayout>

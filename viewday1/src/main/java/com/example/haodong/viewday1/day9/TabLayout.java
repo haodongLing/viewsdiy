@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class TabLayout extends ViewGroup {
+    private TabBaseAdapter mAdapter;
     private List<List<View>> mChildViews = new ArrayList<>();
 
     public TabLayout(Context context) {
@@ -41,18 +42,26 @@ public class TabLayout extends ViewGroup {
 
             /*每行中的View*/
             left = getPaddingLeft();
+            int maxHeight = 0;
             for (View view : childViews) {
+                if(view.getVisibility() == GONE){
+                    continue;
+                }
                 ViewGroup.MarginLayoutParams params = (MarginLayoutParams) view.getLayoutParams();
                 left += params.leftMargin;
                 int childTop = top + params.topMargin;
                 right = left + view.getMeasuredWidth();
                 bottom = childTop + view.getMeasuredHeight();
+                /*摆放*/
                 view.layout(left, top, right, bottom);
+                /*叠加*/
                 left += view.getMeasuredWidth() + params.rightMargin;
+                // 不断的叠加top值
+                int childHeight = view.getMeasuredHeight()+ params.topMargin+params.bottomMargin;
+                maxHeight = Math.max(maxHeight,childHeight);
             }
             // 不断的叠加top值
-            ViewGroup.MarginLayoutParams params = (MarginLayoutParams) childViews.get(0).getLayoutParams();
-            top += childViews.get(0).getMeasuredHeight() + params.topMargin + params.bottomMargin;
+            top += maxHeight;
         }
     }
 
@@ -75,6 +84,9 @@ public class TabLayout extends ViewGroup {
         for (int i = 0; i < childCount; i++) {
             /*获取childView*/
             View childView = getChildAt(i);
+            if(childView.getVisibility()==GONE){
+                continue;
+            }
             /*这段话执行完之后，可以获取子view的宽gao，因为会调用子View的onMeasure方法。*/
             measureChild(childView, widthMeasureSpec, heightMeasureSpec);
             /*根据子View计算和指定自己的布局*/
@@ -97,6 +109,8 @@ public class TabLayout extends ViewGroup {
             }
             childViews.add(childView);
         }
+        /*获取该行View中的最大值作为View的高*/
+        height += maxHeight;
         /*计算ViewGroup自己的宽高*/
         setMeasuredDimension(width, height);
     }
@@ -104,5 +118,21 @@ public class TabLayout extends ViewGroup {
     @Override
     public LayoutParams generateLayoutParams(AttributeSet attrs) {
         return new MarginLayoutParams(getContext(), attrs);
+    }
+
+    public void setmAdapter(TabBaseAdapter mAdapter) {
+        if (mAdapter==null){
+            /*空指针异常*/
+            throw new NullPointerException("TabBaseAdapter is not allowed to be null");
+        }
+        /*清空所有的子View*/
+        removeAllViews();
+        this.mAdapter=null;
+        this.mAdapter = mAdapter;
+        int childCount=mAdapter.getCount();
+        for(int i=0;i<childCount;i++){
+            View view=mAdapter.getView(i,this);
+            addView(view);
+        }
     }
 }
