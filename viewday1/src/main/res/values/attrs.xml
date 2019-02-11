@@ -5,26 +5,30 @@
         <!--name:名称；format:格式-->
         <!--字体大小，宽高 ：dimension-->
         <!--reference :资源的引用-->
-        <attr name="myText" format="string"/>
-        <attr name="myColor" format="color"/>
-        <attr name="myTextSize" format="dimension"/>
-        <attr name="myBackground" format="color|reference"/>
+        <attr name="myText" format="string" />
+        <attr name="myColor" format="color" />
+        <attr name="myTextSize" format="dimension" />
+        <attr name="myBackground" format="color|reference" />
     </declare-styleable>
     <declare-styleable name="QQStepView">
-        <attr name="stepOuterColor" format="color"/>
-        <attr name="stepInnerColor" format="color"/>
-        <attr name="stepBorderWidth" format="dimension"/>
-        <attr name="stepFontSize" format="dimension"/>
-        <attr name="stepFontColor" format="color"/>
+        <attr name="stepOuterColor" format="color" />
+        <attr name="stepInnerColor" format="color" />
+        <attr name="stepBorderWidth" format="dimension" />
+        <attr name="stepFontSize" format="dimension" />
+        <attr name="stepFontColor" format="color" />
     </declare-styleable>
     <declare-styleable name="ColorTrackTextView">
-        <attr name="originColor" format="color"/>
-        <attr name="changeColor" format="color"/>
+        <attr name="originColor" format="color" />
+        <attr name="changeColor" format="color" />
     </declare-styleable>
     <declare-styleable name="MyCircleScheduleView">
-        <attr name="myNormalColor" format="color"/>
-        <attr name="myScheduledColor" format="color"/>
-        <attr name="myTxtSize" format="dimension"/>
-        <attr name="myStrokeWidth" format="dimension"/>
+        <attr name="myNormalColor" format="color" />
+        <attr name="myScheduledColor" format="color" />
+        <attr name="myTxtSize" format="dimension" />
+        <attr name="myStrokeWidth" format="dimension" />
+    </declare-styleable>
+
+    <declare-styleable name="MySlidingMenu">
+        <attr name="menuRightMargin" format="dimension" />
     </declare-styleable>
 </resources>
