@@ -11,17 +11,20 @@
         android:theme="@style/AppTheme">
         <activity android:name=".MainActivity" />
         <activity android:name=".viewday2.StepViewActivity" />
-        <activity android:name=".day7.SeventhActivity"></activity>
+        <activity android:name=".day7.SeventhActivity" />
         <activity android:name=".day7.QuadViewActivity" />
-        <activity android:name=".day8.Day8Activity">
-        </activity>
+        <activity android:name=".day8.Day8Activity"></activity>
         <activity android:name=".day10.Day10Activity">
+
+        </activity>
+        <activity android:name=".day9.Day9Activity" />
+        <activity android:name=".day12.Day12Activity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".day9.Day9Activity"/>
     </application>
 
 </manifest>
