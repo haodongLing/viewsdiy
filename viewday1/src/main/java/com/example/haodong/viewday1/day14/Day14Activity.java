@@ -16,7 +16,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Day14Activity extends AppCompatActivity {
-    private ListView mListView;
+    private MyListView mListView;
     private List<String> mItems;
 
     @Override

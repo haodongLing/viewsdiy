@@ -2,11 +2,14 @@ package com.example.haodong.viewday1.day14;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
+import android.support.v4.view.ViewCompat;
 import android.support.v4.widget.ViewDragHelper;
+import android.support.v7.widget.RecyclerView;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.AbsListView;
 import android.widget.FrameLayout;
 
 /**
@@ -20,6 +23,7 @@ public class VerticalDragListView extends FrameLayout {
     private int mMenuHeight;
     /*菜单是否打开*/
     private boolean mMenuIsOpen = false;
+    private float mDownY;
 
     public VerticalDragListView(Context context) {
         this(context, null);
@@ -101,23 +105,46 @@ public class VerticalDragListView extends FrameLayout {
         }
     }
 
+    @Override
+    public boolean dispatchTouchEvent(MotionEvent ev) {
+        Log.e("tag", "dispatchTouchEvent:---->ViewDrager" );
+        return super.dispatchTouchEvent(ev);
+    }
 
     @Override
     public boolean onInterceptTouchEvent(MotionEvent ev) {
-        if (mDragerListView.getTop() == 0) {
+        if (mMenuIsOpen) {
             return true;
-        } else if (ev.getAction() == MotionEvent.ACTION_UP) {
-            if (mDragerListView.getTop() == mMenuHeight && getScrollY() > 0) {
-                return true;
-            }
+        }
+        Log.e("tag", "onInterceptTouchEvent:----->ViewDrager" );
+        switch (ev.getAction()) {
+            case MotionEvent.ACTION_DOWN:
+                Log.e("tag", "onInterceptTouchEvent: ----->ViewDrager-->DOWN");
+                mDownY= ev.getY();
+                /*让dragerhelper拿一个完整的事件,因为当actionDowm的时候*/
+                mDragHelper.processTouchEvent(ev);
+                break;
+            case MotionEvent.ACTION_MOVE:
+                Log.e("tag", "onInterceptTouchEvent: ----ViewDrager---MOVE");
+                float moveY=ev.getY();
+                if((moveY-mDownY)>0&& !canChildScrollUp()){
+                    /*向下滑动*/
+                    return true;
+                }
+                break;
+            case MotionEvent.ACTION_UP:
+                Log.e("tag", "onInterceptTouchEvent:---->ViewDrager---UP " );
+                break;
         }
         return super.onInterceptTouchEvent(ev);
     }
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
+        Log.e("tag" ,"onTouchEvent:---->ViewDrager ");
         mDragHelper.processTouchEvent(event);
         return true;
+
     }
 
     @Override
@@ -135,5 +162,21 @@ public class VerticalDragListView extends FrameLayout {
         super.onLayout(changed, left, top, right, bottom);
         View menuView = getChildAt(0);
         mMenuHeight = menuView.getMeasuredHeight();
+    }
+
+    public boolean canChildScrollUp() {
+//        if (android.os.Build.VERSION.SDK_INT < 14) {
+//            if (mDragerListView instanceof AbsListView) {
+//                final AbsListView absListView = (AbsListView) mDragerListView;
+//                return absListView.getChildCount() > 0
+//                        && (absListView.getFirstVisiblePosition() > 0 || absListView.getChildAt(0)
+//                        .getTop() < absListView.getPaddingTop());
+//            } else {
+//                return ViewCompat.canScrollVertically(mDragerListView, -1) || mDragerListView.getScrollY() > 0;
+//            }
+//        } else {
+//            return ViewCompat.canScrollVertically(mDragerListView, -1);
+//        }
+        return mDragerListView.canScrollVertically(-1);
     }
 }
