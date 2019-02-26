@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@color/design_default_color_primary"
     tools:context=".day8.Day8Activity">
 
     <LinearLayout
@@ -28,6 +29,26 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:text="hello world" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="100dp">
+            <com.example.haodong.viewday1.day8.WaterView
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_centerInParent="true"/>
+            <ImageView
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:layout_centerInParent="true"
+                android:src="@drawable/ic_accept"
+                />
+        </RelativeLayout>
+       <com.example.haodong.viewday1.day8.CircleView
+           android:layout_width="184dp"
+           android:layout_height="184dp" />
     </LinearLayout>
+
+
 
 </LinearLayout>
