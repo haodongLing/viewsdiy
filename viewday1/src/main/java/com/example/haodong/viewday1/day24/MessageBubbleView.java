@@ -21,8 +21,9 @@ public class MessageBubbleView extends View {
     /*两个圆的圆心*/
     private PointF mFixactionPoint, mDragPoint;
     /*圆的半径*/
-    private int mDragCircleRandius = SizeUtils.dip2px(getContext(), 10),
-            mFixedCircleRandius = SizeUtils.dip2px(getContext(), 10);
+    private int mDragCircleRandius;
+    private int mFixedCircleRandius;
+    private int mFixationRadiusMin;
     /*画圆的画笔*/
     private Paint mDragPaint, mFixedPaint;
 
@@ -43,6 +44,9 @@ public class MessageBubbleView extends View {
         mFixedPaint.setColor(Color.RED);
         /*防抖动*/
         mFixedPaint.setDither(true);
+        mDragCircleRandius = SizeUtils.dip2px(getContext(), 10);
+        mFixedCircleRandius = SizeUtils.dip2px(getContext(), 10);
+        mFixationRadiusMin = SizeUtils.dip2px(getContext(), 3);
 
     }
 
@@ -98,6 +102,22 @@ public class MessageBubbleView extends View {
         }
         /*画两个圆*/
         // 画拖拽圆
-        canvas.drawCircle(mDragPoint.x, mDragPoint.y, );
+        canvas.drawCircle(mDragPoint.x, mDragPoint.y, mDragCircleRandius, mDragPaint);
+        double distance = getDistance(mDragPoint, mFixactionPoint);
+        mFixedCircleRandius = (int) (mFixedCircleRandius - distance / 14);
+
     }
+
+    /**
+     * 获取两个圆之间的距离
+     *
+     * @param point1
+     * @param point2
+     * @return
+     */
+    private double getDistance(PointF point1, PointF point2) {
+        return Math.sqrt((point1.x - point2.x) * (point1.x - point2.x) + (point1.y - point2.y) *
+                (point1.y - point2.y));
+    }
+
 }
