@@ -21,10 +21,10 @@ public class MyInputReader {
         FileWriter fw = null;
     }
 
-    public static class CloseUtils {
-        public static void setClose(T<? extends Closeable> t) {
-
-        }
-    }
+//    public static class CloseUtils {
+//        public static void setClose(T<? extends Closeable> t) {
+//
+//        }
+//    }
 
 }
