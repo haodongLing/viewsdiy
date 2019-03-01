@@ -46,6 +46,7 @@ public class MyInputReader {
         }
     }
 
+
     public static void readFileByChars(String fileName) {
         File file = new File(fileName);
         Reader reader = null;
@@ -100,7 +101,11 @@ public class MyInputReader {
             }
         }
     }
-
+//    public static class CloseUtils {
+//        public static void setClose(T<? extends Closeable> t) {
+//
+//        }
+//    }
     public static void readFileByLines(String fileName) {
         File file = new File(fileName);
         BufferedReader bufferedReader = null;
