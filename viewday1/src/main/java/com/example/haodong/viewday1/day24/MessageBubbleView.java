@@ -4,6 +4,7 @@ import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
+import android.graphics.Path;
 import android.graphics.PointF;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
@@ -21,9 +22,10 @@ public class MessageBubbleView extends View {
     /*两个圆的圆心*/
     private PointF mFixactionPoint, mDragPoint;
     /*圆的半径*/
-    private int mDragCircleRandius;
+    private int mDragCircleRandius = 10;
     private int mFixedCircleRandius;
-    private int mFixationRadiusMin;
+    private int mFixationRadiusMax = 7;
+    private int mFixationRadiusMin = 3;
     /*画圆的画笔*/
     private Paint mDragPaint, mFixedPaint;
 
@@ -44,8 +46,15 @@ public class MessageBubbleView extends View {
         mFixedPaint.setColor(Color.RED);
         /*防抖动*/
         mFixedPaint.setDither(true);
+
+        mDragPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
+        mDragPaint.setStyle(Paint.Style.FILL);
+        mDragPaint.setColor(Color.RED);
+        /*防抖动*/
+        mDragPaint.setDither(true);
+        /*实例化需要放在这里进行*/
         mDragCircleRandius = SizeUtils.dip2px(getContext(), 10);
-        mFixedCircleRandius = SizeUtils.dip2px(getContext(), 10);
+        mFixationRadiusMax = SizeUtils.dip2px(getContext(), 7);
         mFixationRadiusMin = SizeUtils.dip2px(getContext(), 3);
 
     }
@@ -106,6 +115,15 @@ public class MessageBubbleView extends View {
         double distance = getDistance(mDragPoint, mFixactionPoint);
         mFixedCircleRandius = (int) (mFixedCircleRandius - distance / 14);
 
+        Path bezeierPath = getBezeierPath();
+        if (bezeierPath != null) {
+            canvas.drawCircle(mFixactionPoint.x, mFixactionPoint.y, mFixedCircleRandius,
+                    mFixedPaint);
+            /*画bezeier曲线*/
+            canvas.drawPath(bezeierPath, mDragPaint);
+
+        }
+
     }
 
     /**
@@ -118,6 +136,59 @@ public class MessageBubbleView extends View {
     private double getDistance(PointF point1, PointF point2) {
         return Math.sqrt((point1.x - point2.x) * (point1.x - point2.x) + (point1.y - point2.y) *
                 (point1.y - point2.y));
+    }
+
+    /**
+     * 获取贝塞尔路径
+     *
+     * @return
+     */
+    public Path getBezeierPath() {
+        double distance = getDistance(mDragPoint, mFixactionPoint);
+
+        mFixedCircleRandius = (int) (mFixationRadiusMax - distance / 14);
+        if (mFixedCircleRandius < mFixationRadiusMin) {
+            /*超过一定的距离 贝塞尔和固定的圆都不用画了*/
+            return null;
+        }
+        Path bezeierPath = new Path();
+        /*求∠a*/
+        /*求斜率*/
+        float dy = (mDragPoint.y - mFixactionPoint.y);
+        float dx = (mDragPoint.x - mFixactionPoint.x);
+        float tanA = dy / dx;
+
+        // 求角a
+        double arcTanA = Math.atan(tanA);
+        // p0
+        float p0x = (float) (mFixactionPoint.x + mFixedCircleRandius * Math.sin(arcTanA));
+        float p0y = (float) (mFixactionPoint.y - mFixedCircleRandius * Math.cos(arcTanA));
+
+        // p1
+        float p1x = (float) (mDragPoint.x + mDragCircleRandius * Math.sin(arcTanA));
+        float p1y = (float) (mDragPoint.y - mDragCircleRandius * Math.cos(arcTanA));
+
+        // p2
+        float p2x = (float) (mDragPoint.x - mDragCircleRandius * Math.sin(arcTanA));
+        float p2y = (float) (mDragPoint.y + mDragCircleRandius * Math.cos(arcTanA));
+
+        // p3
+        float p3x = (float) (mFixactionPoint.x - mFixedCircleRandius * Math.sin(arcTanA));
+        float p3y = (float) (mFixactionPoint.y + mFixedCircleRandius * Math.cos(arcTanA));
+        //
+        bezeierPath.moveTo(p0x,p0y);
+        PointF controlPoint=getControlPoint();
+        bezeierPath.quadTo(controlPoint.x,controlPoint.y,p1x,p1y);
+
+        /*画第二条*/
+        bezeierPath.lineTo(p2x,p2y);
+        bezeierPath.quadTo(controlPoint.x,controlPoint.y,p3x,p3y);
+        bezeierPath.close();
+        return null;
+    }
+    public PointF getControlPoint() {
+        /*注意，DragPoint是变化的*/
+        return new PointF((mDragPoint.x+mFixactionPoint.x)/2,(mDragPoint.y+mFixactionPoint.y)/2);
     }
 
 }
