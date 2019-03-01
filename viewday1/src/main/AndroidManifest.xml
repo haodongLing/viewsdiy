@@ -24,13 +24,15 @@
 
         </activity>
         <activity android:name=".iphone.IponeActivity">
+
+        </activity>
+        <activity android:name=".day24.BeciaActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".day24.BeciaActivity"></activity>
     </application>
 
 </manifest>

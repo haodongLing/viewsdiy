@@ -10,6 +10,9 @@ import android.util.TypedValue;
 import android.view.MotionEvent;
 import android.view.View;
 
+import java.io.File;
+import java.io.FileReader;
+
 /**
  * describe:
  * created at 2019/2/22
