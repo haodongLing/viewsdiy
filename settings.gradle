@@ -1,7 +1,3 @@
 include ':app', ':designmode',
-        ':costomviewforclock',
-        ':recyclerviewprac',
-        ':brvahprac',
         ':mycavas',
-        ':chapter1',
         ':viewday1'
