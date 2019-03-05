@@ -28,6 +28,9 @@ public class Receiver extends Thread {
     }
 
 
+    public PipedReader getIn() {
+        return in;
+    }
 
     @Override
     public void run(){
