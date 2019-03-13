@@ -3,6 +3,8 @@ package com.example.disignmode;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
+import java.util.LinkedList;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
