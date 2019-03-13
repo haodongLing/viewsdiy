@@ -11,8 +11,6 @@ import android.view.View;
 
 import com.example.disignmode.mybuilder.NavigationBar;
 
-import java.util.LinkedList;
-
 public class MainActivity extends AppCompatActivity {
     private ConstraintLayout mViewRoot;
 
