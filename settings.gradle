@@ -1,2 +1,2 @@
-include ':app', ':designmode',
-        ':viewday1',':brvahprac'
+include ':app', ':designmode', ':matisse',
+        ':viewday1', ':brvahprac', 'chapter1'
