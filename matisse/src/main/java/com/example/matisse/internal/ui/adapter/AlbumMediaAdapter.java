@@ -160,9 +160,9 @@ public class AlbumMediaAdapter extends
 
     @Override
     public void onThumbnailClicked(ImageView thumbnail, Item item, RecyclerView.ViewHolder holder) {
-        if (mOnMediaClickListener != null) {
-            mOnMediaClickListener.onMediaClick(null, item, holder.getAdapterPosition());
-        }
+//        if (mOnMediaClickListener != null) {
+//            mOnMediaClickListener.onMediaClick(null, item, holder.getAdapterPosition());
+//        }
     }
 
     @Override

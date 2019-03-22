@@ -1,5 +1,7 @@
 package com.example.chapter1.electric.ablm;
 
+import android.net.Uri;
+
 /**
  * description: 轮播图的数据结构
  * author: linghailong
@@ -14,6 +16,8 @@ public class SlideImage {
     private long date;
     // 图片的路径
     private String path;
+    // 图片的Uri
+    private Uri uri;
     // 是否被选中
     boolean isSelected;
     @Override
@@ -69,5 +73,13 @@ public class SlideImage {
 
     public void setSelected(boolean selected) {
         isSelected = selected;
+    }
+
+    public Uri getUri() {
+        return uri;
+    }
+
+    public void setUri(Uri uri) {
+        this.uri = uri;
     }
 }
