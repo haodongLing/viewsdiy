@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".electric.ablm.tools.DialogActivity"
+    android:orientation="vertical">
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/len_52"
+        android:text="全屏dialog"
+        android:id="@+id/btn_full"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/len_52"
+        android:text="正常dialog"
+        android:id="@+id/btn_normal"/>
+</LinearLayout>
