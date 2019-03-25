@@ -340,4 +340,5 @@
     <dimen name="len_88">88dp</dimen>
     <dimen name="len_92">92dp</dimen>
     <dimen name="len_96">96dp</dimen>
+    <color name="black_30">#4c000000</color>
 </resources>

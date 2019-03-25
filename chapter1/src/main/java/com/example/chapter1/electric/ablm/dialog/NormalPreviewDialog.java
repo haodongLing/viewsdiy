@@ -5,7 +5,6 @@ import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import android.view.View;
@@ -18,11 +17,10 @@ import com.example.chapter1.electric.ablm.tools.GradientTextView;
 /**
  * description:
  * author: linghailong
- * date: 2019/3/22
+ * date: 2019/3/25
  */
-public class FullPreviewDialog extends AppCompatActivity implements View.OnClickListener {
+public class NormalPreviewDialog extends AppCompatActivity implements View.OnClickListener {
     private TextView tvStart;
-    private TextView tvNotNow;
     private GradientTextView gradientTextView1;
     private TextView tv1, tv2;
     private ImageView imgDelete;
@@ -34,13 +32,13 @@ public class FullPreviewDialog extends AppCompatActivity implements View.OnClick
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Log.e("lhl", "onCreate: ");
-        setContentView(R.layout.dialog_full);
-       initView();
-       initMedia();
+        setContentView(R.layout.dialog_preview_normal);
+        initView();
+        initMedia();
     }
 
     private void initMedia() {
+
     }
 
     private void initView() {
@@ -58,9 +56,8 @@ public class FullPreviewDialog extends AppCompatActivity implements View.OnClick
         tv1.setTypeface(typeface);
         tv2.setTypeface(typeface);
         mMediaPlayer = new MyPlayer();
-        tvNotNow=findViewById(R.id.btn_not_now);
         /*初始化*/
-        mSurfaceView = findViewById(R.id.dialog_full_surface_view);
+        mSurfaceView = findViewById(R.id.normal_surface_view);
         mHolder = mSurfaceView.getHolder();
         mHolder.setKeepScreenOn(true);
         mHolder.addCallback(new SurfaceViewLis());
@@ -71,7 +68,8 @@ public class FullPreviewDialog extends AppCompatActivity implements View.OnClick
 
         imgDelete.setOnClickListener(this);
         tvStart.setOnClickListener(this);
-        tvNotNow.setOnClickListener(this);
+
+
     }
 
     @Override
@@ -82,10 +80,6 @@ public class FullPreviewDialog extends AppCompatActivity implements View.OnClick
 
                 break;
             case R.id.img_close:
-                mMediaPlayer.release();
-                finish();
-                break;
-            case R.id.btn_not_now:
                 mMediaPlayer.release();
                 finish();
                 break;
@@ -103,7 +97,7 @@ public class FullPreviewDialog extends AppCompatActivity implements View.OnClick
 
         @Override
         public void surfaceCreated(SurfaceHolder holder) {
-            mMediaPlayer.play(FullPreviewDialog.this, "album_preview.mp4", mHolder);
+            mMediaPlayer.play(NormalPreviewDialog.this, "album_preview.mp4", mHolder);
             mMediaPlayer.start();
         }
 

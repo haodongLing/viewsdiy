@@ -29,6 +29,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".electric.ablm.dialog.NormalPreviewDialog"
+            android:theme="@style/transparentDialog">
+        </activity>
+        <activity android:name=".electric.ablm.dialog.FullPreviewDialog"
+            android:theme="@style/transparentDialog"
+            android:launchMode="singleInstance"></activity>
     </application>
 
 </manifest>

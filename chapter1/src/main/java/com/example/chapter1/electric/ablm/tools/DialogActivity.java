@@ -1,16 +1,19 @@
 package com.example.chapter1.electric.ablm.tools;
 
-import android.support.v7.app.AppCompatActivity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.view.SurfaceHolder;
 import android.view.View;
 import android.widget.Button;
 
-import com.example.chapter1.MainActivity;
 import com.example.chapter1.R;
 import com.example.chapter1.electric.ablm.dialog.FullPreviewDialog;
+import com.example.chapter1.electric.ablm.dialog.NormalPreviewDialog;
 
 public class DialogActivity extends AppCompatActivity {
     private Button btnFull,btnNormal;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,10 +28,16 @@ public class DialogActivity extends AppCompatActivity {
         btnFull.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               FullPreviewDialog fullPreviewDialog=new FullPreviewDialog(DialogActivity.this);
-               fullPreviewDialog.create();
-               fullPreviewDialog.show();
+              startActivity(new Intent(DialogActivity.this,FullPreviewDialog.class));
             }
         });
+        btnNormal.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(DialogActivity.this,NormalPreviewDialog.class));
+            }
+        });
+
     }
+
 }

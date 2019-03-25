@@ -10,8 +10,6 @@ import android.graphics.Shader;
 import android.support.v7.widget.AppCompatTextView;
 import android.util.AttributeSet;
 
-import com.example.chapter1.R;
-
 /**
  * description:
  * author: linghailong
@@ -34,41 +32,30 @@ public class GradientTextView extends AppCompatTextView {
                             AttributeSet attrs) {
         super(context, attrs);
         //设置默认的颜色
-        int start=Color.parseColor("#57C2B8");
-        int medium=Color.parseColor("#5ECCA6");
-        int end=Color.parseColor("#67D595");
+
 //        mColorList = new int[]{R.color.colorStart, R.color.colorMedium, R.color.colorEnd};
-        mColorList=new int[]{start,medium,end};
+        mColorList = new int[]{0xFFFFEABA, 0xFFDFBB82, 0xFFBE8B49};
+        int start = Color.parseColor("#57C2B8");
+        int medium = Color.parseColor("#5ECCA6");
+        int end = Color.parseColor("#67D595");
+        mColorList = new int[]{start,medium,end};
     }
 
 
     @Override
     protected void onDraw(Canvas canvas) {
-
-        if (isVertrial) {
-            mViewHeight = getMeasuredHeight();
-        } else {
-            mViewWidth = getMeasuredWidth();
-        }
+        mViewWidth = getMeasuredWidth();
         mPaint = getPaint();
         String mTipText = getText().toString();
         mPaint.getTextBounds(mTipText, 0, mTipText.length(), mTextBound);
-        //前面4个参数分别表示渐变的开始x轴,开始y轴,结束的x轴,结束的y轴,mcolorList表示渐变的颜色数组
-        mLinearGradient = new LinearGradient(0, 0, mViewWidth, mViewHeight, mColorList, null,
-                Shader.TileMode.CLAMP);
+        mLinearGradient = new LinearGradient(0, 0, mViewWidth, 0, mColorList, null, Shader
+                .TileMode.REPEAT);
         mPaint.setShader(mLinearGradient);
-        //画出文字
-        canvas.drawText(mTipText, getMeasuredWidth() / 2 - mTextBound.width() / 2,
-                getMeasuredHeight() / 2 + mTextBound.height() / 2, mPaint);
-    }
-
-    /**
-     * true表示纵向渐变,false变身横向渐变
-     *
-     * @param vertrial
-     */
-    public void setVertrial(boolean vertrial) {
-        isVertrial = vertrial;
+        Paint.FontMetrics mFontMetrics = mPaint.getFontMetrics();
+        int dx = getWidth() / 2 - mTextBound.width() / 2;
+        int dy = (int) ((mFontMetrics.bottom - mFontMetrics.top) / 2 - mFontMetrics.bottom);
+        int baseline = getHeight() / 2 + dy;
+        canvas.drawText(mTipText, dx, baseline, mPaint);
     }
 
     /**
