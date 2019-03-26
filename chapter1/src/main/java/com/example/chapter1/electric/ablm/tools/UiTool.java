@@ -1,6 +1,7 @@
 package com.example.chapter1.electric.ablm.tools;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.Rect;
 import android.os.Build;
@@ -56,14 +57,14 @@ public class UiTool {
         return STATUS_BAR_HEIGHT;
     }
 
-    public static int getScreenWidth(Activity activity) {
-        DisplayMetrics displayMetrics = activity.getResources().getDisplayMetrics();
+    public static int getScreenWidth(Context context) {
+        DisplayMetrics displayMetrics = context.getResources().getDisplayMetrics();
         //int width = activity.getWindowManager().getDefaultDisplay().getWidth();
         return displayMetrics.widthPixels;
     }
 
-    public static int getScreenHeight(Activity activity) {
-        DisplayMetrics displayMetrics = activity.getResources().getDisplayMetrics();
+    public static int getScreenHeight(Context context) {
+        DisplayMetrics displayMetrics = context.getResources().getDisplayMetrics();
         //int width = activity.getWindowManager().getDefaultDisplay().getWidth();
         return displayMetrics.heightPixels;
     }

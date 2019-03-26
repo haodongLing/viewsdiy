@@ -1,4 +1,4 @@
-package com.example.chapter1.electric.ablm;
+package com.example.chapter1.electric.ablm.fragments;
 
 import android.app.Dialog;
 import android.content.Context;
@@ -14,6 +14,8 @@ import android.view.Window;
 import android.widget.Button;
 
 import com.example.chapter1.R;
+import com.example.chapter1.electric.ablm.GalleryView;
+import com.example.chapter1.electric.ablm.SlideImage;
 import com.example.chapter1.electric.ablm.tools.UiTool;
 
 import java.util.List;
@@ -23,8 +25,7 @@ import java.util.List;
  * author: linghailong
  * date: 2019/3/21
  */
-public class GalleryFragment extends BottomSheetDialogFragment implements GalleryView
-        .SelectedChangeListener {
+public class GalleryFragment extends BottomSheetDialogFragment implements GalleryView.SelectedChangeListener {
     private GalleryView mGalleryView;
     private OnSelectedListener mListener;
     private Button btnEnsure;

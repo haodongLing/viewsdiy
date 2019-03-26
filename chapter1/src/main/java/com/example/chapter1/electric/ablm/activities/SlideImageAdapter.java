@@ -1,4 +1,4 @@
-package com.example.chapter1.electric.ablm;
+package com.example.chapter1.electric.ablm.activities;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
@@ -11,6 +11,7 @@ import android.widget.ImageView;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.example.chapter1.R;
+import com.example.chapter1.electric.ablm.SlideImage;
 import com.example.chapter1.electric.ablm.draghelper.OnDragVHListener;
 import com.example.chapter1.electric.ablm.draghelper.OnItemMoveListener;
 
@@ -102,7 +103,4 @@ public class SlideImageAdapter extends RecyclerView.Adapter<SlideImageAdapter.Sl
         }
     }
 
-    public ArrayList<SlideImage> getmSlideImageArr() {
-        return mSlideImageArr;
-    }
 }

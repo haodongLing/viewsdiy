@@ -48,7 +48,7 @@ public class NormalPreviewDialog extends AppCompatActivity implements View.OnCli
         // 设置文字
         Typeface typeface;
         try {
-            typeface = Typeface.createFromAsset(getAssets(), "Roboto-Regular 2.ttf");
+            typeface = Typeface.createFromAsset(getAssets(), "Roboto-Medium.ttf");
         } catch (Exception e) {
             typeface = Typeface.DEFAULT;
             e.printStackTrace();

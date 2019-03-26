@@ -18,16 +18,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity"></activity>
-        <activity android:name=".electric.ablm.AblumActivity">
+        <activity android:name=".electric.ablm.activities.MainActivity">
 
         </activity>
-        <activity android:name=".electric.ablm.tools.DialogActivity">
+        <activity android:name=".electric.ablm.activities.AblumActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity android:name=".electric.ablm.tools.DialogActivity">
+
         </activity>
         <activity android:name=".electric.ablm.dialog.NormalPreviewDialog"
             android:theme="@style/transparentDialog">
@@ -35,6 +37,7 @@
         <activity android:name=".electric.ablm.dialog.FullPreviewDialog"
             android:theme="@style/transparentDialog"
             android:launchMode="singleInstance"></activity>
+        <activity android:name=".electric.ablm.activities.PreviewActivity"></activity>
     </application>
 
 </manifest>

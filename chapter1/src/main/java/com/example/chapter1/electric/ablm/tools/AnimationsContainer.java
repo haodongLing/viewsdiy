@@ -1,4 +1,4 @@
-package mobi.infolife.ezweather.locker.fingerprint.circuitboard.neon;
+package com.example.chapter1.electric.ablm.tools;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -18,7 +18,7 @@ import java.lang.ref.SoftReference;
  */
 public class AnimationsContainer {
     public int FPS = 40;  // 每秒播放帧数，fps = 1/t，t-动画两帧时间间隔
-    private int resId = R.array.frame_success; //图片资源
+//    private int resId = R.array.frame_success; //图片资源
     private Context mContext;
     // 单例
     private static AnimationsContainer mInstance;
@@ -33,14 +33,14 @@ public class AnimationsContainer {
     }
 
     public  AnimationsContainer getInstance(int resId, int fps) {
-        mInstance.setResId(resId, fps);
+//        mInstance.setResId(resId, fps);
         return mInstance;
     }
 
-    public void setResId(int resId, int fps){
-        this.resId = resId;
-        this.FPS = fps;
-    }
+//    public void setResId(int resId, int fps){
+//        this.resId = resId;
+//        this.FPS = fps;
+//    }
 //    // 从xml中读取资源ID数组
 //    private int[] mProgressAnimFrames = getData(resId);
 

@@ -1,13 +1,15 @@
 package com.example.chapter1.electric.ablm;
 
 import android.net.Uri;
+import android.os.Parcel;
+import android.os.Parcelable;
 
 /**
  * description: 轮播图的数据结构
  * author: linghailong
  * date: 2019/3/21
  */
-public class SlideImage {
+public class SlideImage implements Parcelable {
     // 轮播顺序 如果是-1 就证明没有被赋值
     private int position=-1;
     // 数据id
@@ -20,6 +22,31 @@ public class SlideImage {
     private Uri uri;
     // 是否被选中
     boolean isSelected;
+
+    protected SlideImage(Parcel in) {
+        position = in.readInt();
+        id = in.readInt();
+        date = in.readLong();
+        path = in.readString();
+        uri = in.readParcelable(Uri.class.getClassLoader());
+        isSelected = in.readByte() != 0;
+    }
+
+    public SlideImage() {
+    }
+
+    public static final Creator<SlideImage> CREATOR = new Creator<SlideImage>() {
+        @Override
+        public SlideImage createFromParcel(Parcel in) {
+            return new SlideImage(in);
+        }
+
+        @Override
+        public SlideImage[] newArray(int size) {
+            return new SlideImage[size];
+        }
+    };
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -81,5 +108,20 @@ public class SlideImage {
 
     public void setUri(Uri uri) {
         this.uri = uri;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeInt(position);
+        dest.writeInt(id);
+        dest.writeLong(date);
+        dest.writeString(path);
+        dest.writeParcelable(uri, flags);
+        dest.writeByte((byte) (isSelected ? 1 : 0));
     }
 }

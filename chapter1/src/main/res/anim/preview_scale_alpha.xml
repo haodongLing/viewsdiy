@@ -5,7 +5,6 @@
     android:fillBefore="false"
     android:repeatCount="0"
     android:repeatMode="restart"
-    android:shareinterpolator="true"
     android:startOffset="1000">
 
 

@@ -5,13 +5,13 @@ import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
-import android.graphics.Rect;
 import android.support.annotation.ColorInt;
 import android.support.v7.widget.AppCompatTextView;
 import android.util.AttributeSet;
 import android.view.Gravity;
 
 import com.example.chapter1.R;
+import com.example.chapter1.electric.ablm.tools.SizeUtils;
 
 /**
  * description:

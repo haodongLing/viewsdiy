@@ -1,7 +1,10 @@
-package com.example.chapter1;
+package com.example.chapter1.electric.ablm.activities;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import com.example.chapter1.R;
+import com.example.chapter1.SpiderView;
 
 import java.util.LinkedList;
 

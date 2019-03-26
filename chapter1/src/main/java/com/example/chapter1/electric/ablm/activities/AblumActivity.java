@@ -1,4 +1,4 @@
-package com.example.chapter1.electric.ablm;
+package com.example.chapter1.electric.ablm.activities;
 
 import android.Manifest;
 import android.content.Context;
@@ -18,16 +18,16 @@ import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 
-import com.example.chapter1.MainActivity;
 import com.example.chapter1.R;
+import com.example.chapter1.electric.ablm.fragments.GalleryFragment;
+import com.example.chapter1.electric.ablm.SlideImage;
 import com.example.chapter1.electric.ablm.draghelper.ItemDragHelperCallback;
 import com.example.matisse.Matisse;
 import com.example.matisse.MimeType;
 import com.example.matisse.engine.impl.Glide4Engine;
+import com.example.matisse.internal.ui.widget.PreviewViewPager;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -70,6 +70,14 @@ public class AblumActivity extends AppCompatActivity {
         btnPreview.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Bundle bundle=new Bundle();
+
+                Intent intent=new Intent(AblumActivity.this,PreviewActivity.class);
+                if (mSlideImgAdapter!=null){
+                    ArrayList<SlideImage> arrayList=mSlideImgAdapter.getSlideImageArr();
+                    intent.putParcelableArrayListExtra("slideArray",arrayList);
+                }
+                startActivity(intent);
 
             }
         });
