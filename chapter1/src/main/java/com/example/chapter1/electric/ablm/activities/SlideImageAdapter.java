@@ -101,4 +101,8 @@ public class SlideImageAdapter extends RecyclerView.Adapter<SlideImageAdapter.Sl
             imgShade.setVisibility(View.INVISIBLE);
         }
     }
+
+    public ArrayList<SlideImage> getmSlideImageArr() {
+        return mSlideImageArr;
+    }
 }

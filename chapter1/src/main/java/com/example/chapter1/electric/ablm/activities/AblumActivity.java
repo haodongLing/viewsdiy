@@ -66,6 +66,13 @@ public class AblumActivity extends AppCompatActivity {
     private void initView() {
         btnAdd = findViewById(R.id.btn_ablum_add);
         btnPreview = findViewById(R.id.btn_ablum_preview);
+        /*BtnPreview*/
+        btnPreview.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
         btnSet = findViewById(R.id.btn_ablum_shezhi);
         btnAdd.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -119,7 +126,6 @@ public class AblumActivity extends AppCompatActivity {
             List<Uri> uriList = Matisse.obtainResult(data);
             List<String> stringList = Matisse.obtainPathResult(data);
             initAdapter(getSlideArray(uriList, stringList));
-            Log.e("OnActivityResult ", String.valueOf(Matisse.obtainOriginalState(data)));
         }
     }
 
