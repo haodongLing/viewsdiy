@@ -7,8 +7,11 @@ import android.os.Message;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.View;
+import android.view.animation.AccelerateDecelerateInterpolator;
+import android.view.animation.AccelerateInterpolator;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.view.animation.DecelerateInterpolator;
 import android.widget.ViewSwitcher;
 
 import com.example.chapter1.R;
@@ -24,7 +27,7 @@ public class PreviewSwitcher extends ViewSwitcher implements ViewSwitcher.ViewFa
     private static final int FLAG_REFRESH = 2;
 
     //默认时间间隔
-    private static final int DEFAULT_TIME_SPAN = 3000;
+    private static final int DEFAULT_TIME_SPAN = 6000;
     private static final int DEFAULT_IN_ANIM_ID = R.anim.advert_scroll_in;
     private static final int DEFAULT_OUT_ANIM_ID = R.anim.advert_scroll_out;
     private static final int DEFAULT_INTERPOLATOR = android.R.interpolator.linear;
@@ -72,9 +75,9 @@ public class PreviewSwitcher extends ViewSwitcher implements ViewSwitcher.ViewFa
         currentIndex = 0;
         mHandler=new ScrollHandler();
         Animation inAnimation=AnimationUtils.loadAnimation(mContext,mInAnimId);
+        inAnimation.setInterpolator(new AccelerateInterpolator());
         Animation outAnimation=AnimationUtils.loadAnimation(mContext,mOutAnimId);
-        inAnimation.setInterpolator(mContext, interpolator);
-        outAnimation.setInterpolator(mContext, interpolator);
+        outAnimation.setInterpolator(new DecelerateInterpolator());
         setInAnimation(inAnimation);
         setOutAnimation(outAnimation);
 
@@ -108,7 +111,6 @@ public class PreviewSwitcher extends ViewSwitcher implements ViewSwitcher.ViewFa
     }
 
     /**
-     * 启动广告翻滚
      * 建议在onResume中调用
      */
     public void start() {
@@ -119,7 +121,6 @@ public class PreviewSwitcher extends ViewSwitcher implements ViewSwitcher.ViewFa
         mHandler.sendEmptyMessage(FLAG_START_SCROLL);
     }
     /**
-     * 暂停广告翻滚
      * 建议在onPause中调用
      */
     public void stop(){
@@ -146,6 +147,7 @@ public class PreviewSwitcher extends ViewSwitcher implements ViewSwitcher.ViewFa
                     mAdapter.bindView(view, mAdapter.getItem(currentIndex));
                     showNext();
                     currentIndex = ++currentIndex % mAdapter.getCount();
+                    Log.e("lhl", "handleMessage: "+currentIndex);
                     mHandler.sendEmptyMessageDelayed(FLAG_START_SCROLL, mTimeSpan);
                     break;
                 case FLAG_STOP_SCROLL:

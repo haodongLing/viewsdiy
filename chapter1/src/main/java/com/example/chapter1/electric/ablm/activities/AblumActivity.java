@@ -4,6 +4,8 @@ import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -17,11 +19,15 @@ import android.util.Log;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
+import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.example.chapter1.R;
 import com.example.chapter1.electric.ablm.fragments.GalleryFragment;
 import com.example.chapter1.electric.ablm.SlideImage;
 import com.example.chapter1.electric.ablm.draghelper.ItemDragHelperCallback;
+import com.example.chapter1.electric.ablm.tools.Blur;
+import com.example.chapter1.electric.ablm.tools.UiTool;
 import com.example.matisse.Matisse;
 import com.example.matisse.MimeType;
 import com.example.matisse.engine.impl.Glide4Engine;
@@ -29,6 +35,15 @@ import com.example.matisse.internal.ui.widget.PreviewViewPager;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import io.reactivex.Observable;
+import io.reactivex.ObservableEmitter;
+import io.reactivex.ObservableOnSubscribe;
+import io.reactivex.Observer;
+import io.reactivex.Scheduler;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.Disposable;
+import io.reactivex.schedulers.Schedulers;
 
 /**
  * description:
@@ -41,6 +56,8 @@ public class AblumActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private SlideImageAdapter mSlideImgAdapter;
     private static final int REQUEST_CODE_CHOOSE = 23;
+    private int mScreenHeight;
+    private int mScreenWidth;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -64,20 +81,91 @@ public class AblumActivity extends AppCompatActivity {
     }
 
     private void initView() {
+        this.mScreenWidth = UiTool.getScreenWidth(this);
+        this.mScreenHeight = UiTool.getScreenHeight(this);
         btnAdd = findViewById(R.id.btn_ablum_add);
         btnPreview = findViewById(R.id.btn_ablum_preview);
         /*BtnPreview*/
         btnPreview.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Bundle bundle=new Bundle();
+                if (mSlideImgAdapter != null) {
+                    final ArrayList<SlideImage> arrayList = mSlideImgAdapter.getSlideImageArr();
+                    if (arrayList != null && arrayList.size() != 0) {
+                        Observable.create(new ObservableOnSubscribe<ArrayList<SlideImage>>() {
+                            @Override
+                            public void subscribe(ObservableEmitter<ArrayList<SlideImage>> emitter)
+                                    throws Exception {
+                                int size = arrayList.size();
+                                for (int i = 0; i < size; i++) {
+                                    String path = arrayList.get(i).getPath();
+                                    BitmapFactory.Options options = new BitmapFactory.Options();
+                                    options.inJustDecodeBounds = true;
+                                    BitmapFactory.decodeFile(path, options);
+                                    int width = options.outWidth;
+                                    int height = options.outHeight;
+                                    options.inJustDecodeBounds = false;
+                                    Log.e("lhl", "subscribe: " +
+                                            "width-->"+width+"mScreenWidth--->"+mScreenWidth+"height--->"+height+"mScreenHeight--->"+mScreenHeight);
+                                    /*第一种情况*/
+                                    if (width>mScreenWidth&&width>height){
+                                        /*第二种情况：需要背景*/
+                                        Log.e("lhl", "bindView:--->width >height ");
+                                        arrayList.get(i).setId(1);
+                                    }else  if (width<mScreenWidth||height<mScreenHeight) {
+                                        if (width < height) {
+                                            Log.e("lhl", "bindView:--->width < height ");
+                                            arrayList.get(i).setId(0);
+                                        }
+                                    }
+                                    else {
+                                        /**/
+                                        Log.e("lhl", "bindView++: ");
+                                        arrayList.get(i).setId(2);
+                                    }
 
-                Intent intent=new Intent(AblumActivity.this,PreviewActivity.class);
-                if (mSlideImgAdapter!=null){
-                    ArrayList<SlideImage> arrayList=mSlideImgAdapter.getSlideImageArr();
-                    intent.putParcelableArrayListExtra("slideArray",arrayList);
+                                }
+                                emitter.onNext(arrayList);
+                            }
+                        }).subscribeOn(Schedulers.io())
+                                .observeOn(AndroidSchedulers.mainThread())
+                                .subscribe(new Observer<ArrayList<SlideImage>>() {
+                                    @Override
+                                    public void onSubscribe(Disposable d) {
+
+                                    }
+
+                                    @Override
+                                    public void onNext(ArrayList<SlideImage> slideImages) {
+                                        Log.e("lhl", "onNext: ");
+                                        Bundle bundle = new Bundle();
+                                        Intent intent = new Intent(AblumActivity.this,
+                                                PreviewActivity.class);
+                                        intent.putParcelableArrayListExtra("slideArray",
+                                                slideImages);
+                                        startActivity(intent);
+                                    }
+
+                                    @Override
+                                    public void onError(Throwable e) {
+                                        Log.e("lhl", "onError: ");
+                                    }
+
+                                    @Override
+                                    public void onComplete() {
+                                        Log.e("lhl", "onComplete: ");
+                                    }
+                                });
+
+                    } else {
+                        Toast.makeText(AblumActivity.this, "you need to select photos first", Toast
+                                .LENGTH_SHORT).show();
+                    }
+                } else {
+                    Toast.makeText(AblumActivity.this, "you need to select photos first", Toast
+                            .LENGTH_SHORT).show();
                 }
-                startActivity(intent);
+
 
             }
         });
