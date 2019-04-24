@@ -46,6 +46,7 @@ public class PreviewAdapter implements IPreviewAdapter<SlideImage> {
         ImageView img=view.findViewById(R.id.iv_first_normal);
         Glide.with(mContext)
                 .load(data.getUri())
+                .fitCenter()
                 .into(img);
 
 
