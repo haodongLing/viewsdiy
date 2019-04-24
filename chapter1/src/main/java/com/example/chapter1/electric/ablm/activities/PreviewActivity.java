@@ -3,20 +3,13 @@ package com.example.chapter1.electric.ablm.activities;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
-import android.view.animation.AlphaAnimation;
-import android.view.animation.Animation;
-import android.view.animation.AnimationSet;
-import android.view.animation.AnimationUtils;
-import android.view.animation.ScaleAnimation;
 import android.widget.FrameLayout;
-import android.widget.ImageView;
-import android.widget.ViewSwitcher;
 
-import com.bumptech.glide.Glide;
 import com.example.chapter1.R;
 import com.example.chapter1.electric.ablm.SlideImage;
 import com.example.chapter1.electric.ablm.preview.PreviewAdapter;
 import com.example.chapter1.electric.ablm.preview.PreviewSwitcher;
+import com.example.chapter1.electric.ablm.tools.UiTool;
 
 import java.util.ArrayList;
 
@@ -26,9 +19,8 @@ import java.util.ArrayList;
  * date: 2019/3/26
  */
 public class PreviewActivity extends AppCompatActivity {
+
     private PreviewSwitcher mViewSwitcher;
-
-
     private FrameLayout mFirstLayout;
     private FrameLayout mScecondLayout;
     private ArrayList<SlideImage> mSlideArr = new ArrayList<>();
@@ -57,6 +49,12 @@ public class PreviewActivity extends AppCompatActivity {
     private void initData() {
        mViewSwitcher.start();
 
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        mViewSwitcher.stop();
     }
 
     private void initListener() {

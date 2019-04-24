@@ -52,7 +52,6 @@ public class SlideImageAdapter extends RecyclerView.Adapter<SlideImageAdapter.Sl
 
     @Override
     public void onBindViewHolder(@NonNull final SlideViewHolder slideViewHolder, final int position) {
-        mSlideImageArr.get(position).setPosition(position);
         slideViewHolder.imgDelete.setOnClickListener(new View.OnClickListener() {
 
             @Override
@@ -78,6 +77,8 @@ public class SlideImageAdapter extends RecyclerView.Adapter<SlideImageAdapter.Sl
     public void onItemMove(int fromPosition, int toPosition) {
         SlideImage imgFrom=mSlideImageArr.get(fromPosition);
         SlideImage imgTo=mSlideImageArr.get(toPosition);
+        mSlideImageArr.set(fromPosition,imgTo);
+        mSlideImageArr.set(toPosition,imgFrom);
         notifyItemMoved(fromPosition,toPosition);
     }
 
