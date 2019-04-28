@@ -216,8 +216,8 @@ public class BST<E extends Comparable<E>> {
     private Node maximum(Node node) {
         if (node.right == null)
             return node;
-
         return maximum(node.right);
+
     }
 
 }
