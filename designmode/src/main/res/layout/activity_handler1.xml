@@ -5,5 +5,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".handlertest.Handler1Activity">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        app:layout_constraintTop_toTopOf="parent"
+        android:text="dangdian "
+        android:id="@+id/handler1_tv"/>
 
 </android.support.constraint.ConstraintLayout>
