@@ -51,15 +51,11 @@ public class PreviewAdapter implements IPreviewAdapter<SlideImage> {
 
     @Override
     public void bindView(View view, SlideImage data) {
-<<<<<<< HEAD
         ImageView img=view.findViewById(R.id.iv_first_normal);
         Glide.with(mContext)
                 .load(data.getUri())
                 .fitCenter()
                 .into(img);
-
-
-=======
         ImageView imgNormal = view.findViewById(R.id.iv_first_normal);
         ImageView imgFull = view.findViewById(R.id.iv_first_full);
         int i = data.getId();
@@ -103,7 +99,6 @@ public class PreviewAdapter implements IPreviewAdapter<SlideImage> {
                 imgFull.setAlpha(1f);
                 break;
         }
->>>>>>> 81a465eacc5ca1bd19d58d91579215e5eb920c09
     }
 
 }

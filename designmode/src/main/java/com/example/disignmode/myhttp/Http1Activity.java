@@ -28,8 +28,6 @@ public class Http1Activity extends AppCompatActivity {
         /*1. 构建缓存尝试*/
         Cache cache = new Cache(this.getCacheDir(), maxSize);
         /*2. 构建拦截器尝试*/
-
-
         OkHttpClient okHttpClient = new OkHttpClient.Builder()
                 .retryOnConnectionFailure(true)
                 .connectTimeout(60, TimeUnit.SECONDS)
