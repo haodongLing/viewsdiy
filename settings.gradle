@@ -1,3 +1,3 @@
 
-include  ':designmode', ':matisse', ':common', ':practice.rxjava',
+include  ':designmode', ':matisse', ':common', ':practice.rxjava', ':pracretrofit',
         ':viewday1', 'chapter1'
