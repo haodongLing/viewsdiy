@@ -8,13 +8,9 @@ import android.graphics.Matrix;
 import android.graphics.Paint;
 import android.graphics.Shader;
 import android.util.AttributeSet;
+import android.view.MotionEvent;
 import android.widget.TextView;
 
-/**
- * @author niupuyue
- * @date 2019/1/11
- * @description:
- */
 @SuppressLint("AppCompatCustomView")
 public class FlickerTextView extends TextView {
     private LinearGradient mLinearGradient;
@@ -60,4 +56,13 @@ public class FlickerTextView extends TextView {
         }
     }
 
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+//        switch (event.getAction()){
+//            case MotionEvent.ACTION_DOWN:
+//                getParent().requestDisallowInterceptTouchEvent(true);
+//                break;
+//        }
+        return super.onTouchEvent(event);
+    }
 }

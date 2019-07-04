@@ -11,6 +11,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".myrxjava.RxActivity"></activity>
+        <activity android:name=".mvp.Login2Activity" />
+        <activity android:name=".myglide.GlideActivity" />
         <activity android:name=".MainActivity" />
         <activity android:name=".myeventbus.Event1Activity" />
         <activity android:name=".myeventbus.Event2Activity" />
@@ -22,7 +25,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".myhttp.Http1Activity" />
-        <activity android:name=".myhttp.Http22Activity"></activity>
+        <activity android:name=".myhttp.Http22Activity" />
     </application>
 
 </manifest>
