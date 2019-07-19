@@ -9,7 +9,7 @@ package com.example.disignmode.mvp;
 public interface BaseContract
 {
     interface View{
-        void showName();
+//        void showName();
 //        void setPresenter(T presenter);
 //        Presenter initPresenter();
     }

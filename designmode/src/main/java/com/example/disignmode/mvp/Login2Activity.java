@@ -27,9 +27,9 @@ public class Login2Activity extends BaseActivity<LoginConstract.Presenter> imple
     public LoginConstract.Presenter initPresenter() {
         return new LoginPresenter(this);
     }
-    @Override
-    public void showName() {
-        mPresenter.queryName(1);
-    }
+//    @Override
+//    public void showName() {
+//        mPresenter.queryName(1);
+//    }
 
 }

@@ -1,5 +1,5 @@
 apply plugin: 'com.android.library'
-
+apply plugin: 'com.jakewharton.butterknife'
 android {
     compileSdkVersion 28
 
@@ -45,4 +45,7 @@ dependencies {
     api 'com.squareup.retrofit2:retrofit:2.3.0'
     api 'com.squareup.retrofit2:converter-gson:+'
     api 'com.squareup.okhttp3:logging-interceptor:+'
+//    classpath 'com.jakewharton:butterknife-gradle-plugin:10.1.0'
+    api "com.jakewharton:butterknife:$rootProject.ext.butterknifeVersion"
+//    annotationProcessor "com.jakewharton:butterknife-compiler:$rootProject.ext.butterknifeVersion"
 }

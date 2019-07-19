@@ -1,3 +1,4 @@
 
-include  ':designmode', ':matisse', ':common', ':practice.rxjava', ':pracretrofit', ':zerenlian', ':facade', ':mystruture',
+include  ':designmode', ':matisse', ':common', ':practice.rxjava', ':pracretrofit', ':zerenlian', ':facade',
+//        ':mystruture',
         ':viewday1', 'chapter1'
