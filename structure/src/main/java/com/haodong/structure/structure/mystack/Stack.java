@@ -1,4 +1,4 @@
-package com.example.disignmode.structure.mystack;
+package com.haodong.structure.structure.mystack;
 
 /**
  * describe :

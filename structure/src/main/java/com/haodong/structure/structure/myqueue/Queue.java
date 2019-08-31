@@ -1,4 +1,4 @@
-package com.example.disignmode.structure.myqueue;
+package com.haodong.structure.structure.myqueue;
 
 public interface Queue<E> {
 

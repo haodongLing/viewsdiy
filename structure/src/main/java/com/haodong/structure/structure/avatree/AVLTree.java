@@ -1,6 +1,6 @@
-package com.example.disignmode.structure.avatree;
+package com.haodong.structure.structure.avatree;
 
-import com.example.disignmode.structure.bst.BST;
+import com.haodong.structure.structure.bst.BST;
 
 import java.util.ArrayList;
 

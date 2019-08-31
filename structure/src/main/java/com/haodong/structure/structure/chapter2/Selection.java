@@ -1,4 +1,4 @@
-package com.example.disignmode.structure.chapter2;
+package com.haodong.structure.structure.chapter2;
 
 /**
  * created by linghaoDo on 2019/8/4

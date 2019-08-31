@@ -1,4 +1,4 @@
-package com.example.disignmode.structure;
+package com.haodong.structure.structure;
 
 import java.util.ArrayList;
 import java.util.Arrays;

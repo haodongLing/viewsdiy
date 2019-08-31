@@ -1,4 +1,4 @@
-package com.example.disignmode.structure.redblacktree;
+package com.haodong.structure.structure.redblacktree;
 
 import java.util.HashMap;
 import java.util.Map;

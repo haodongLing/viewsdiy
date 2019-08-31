@@ -1,4 +1,4 @@
-package com.example.disignmode.structure.chapter2;
+package com.haodong.structure.structure.chapter2;
 
 import javax.xml.transform.Source;
 

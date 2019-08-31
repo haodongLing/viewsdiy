@@ -1,4 +1,4 @@
-package com.example.disignmode.structure.hash;
+package com.haodong.structure.structure.hash;
 
 import java.util.TreeMap;
 

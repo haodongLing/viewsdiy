@@ -1,4 +1,4 @@
-package com.example.disignmode.structure;
+package com.haodong.structure.structure;
 
 /**
  * describe :

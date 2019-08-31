@@ -1,4 +1,4 @@
-package com.example.disignmode.structure.heap;
+package com.haodong.structure.structure.heap;
 
 /**
  * describe : 因为元素需要比较大小，所以需要继承compareable

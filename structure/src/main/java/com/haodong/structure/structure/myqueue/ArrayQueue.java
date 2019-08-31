@@ -1,6 +1,6 @@
-package com.example.disignmode.structure.myqueue;
+package com.haodong.structure.structure.myqueue;
 
-import com.example.disignmode.structure.mystack.Array;
+import com.haodong.structure.structure.mystack.Array;
 
 /**
  * describe :
