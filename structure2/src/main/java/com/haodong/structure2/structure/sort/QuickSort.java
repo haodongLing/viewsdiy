@@ -1,4 +1,4 @@
-package com.haodong.structure2.structure;
+package com.haodong.structure2.structure.sort;
 
 import java.util.ArrayList;
 import java.util.Arrays;
