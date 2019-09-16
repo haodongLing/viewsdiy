@@ -11,7 +11,7 @@ import java.util.Stack;
  * email 105354999@qq.com
  */
 public class BST<E extends Comparable<E>> {
-    private class Node {
+    public class Node {
         public E e;
         public Node left;
         public Node right;
