@@ -1,5 +1,8 @@
 package com.haodong.structure2.structure.questions;
 
+import java.util.LinkedList;
+import java.util.Queue;
+
 /**
  * created by linghaoDo on 2019-09-04
  * <p>
@@ -12,15 +15,15 @@ public class ReMoveElement {
             System.out.print(i + "   ");
         }
         System.out.println("----");
+        solution(arr,0);
     }
 
     public static int solution(int[] arr, int val) {
-//        int k=0;
-//        fi
-//        for(int i=0;i<arr.length;i++){
-//            if ()
-//        }
-        return 0;
+        Queue<Integer> queue=new LinkedList<>();
+        for (int i=0;i<arr.length;i++){
+
+        }
+        return queue.size();
     }
 
 }

@@ -58,6 +58,7 @@ public class MoveZeros {
                 k = k + 1;
             }
         }
+        // 此时k已经改变
         for (int i = k; i < nums.length; i++) {
             nums[i] = 0;
         }
@@ -66,6 +67,7 @@ public class MoveZeros {
 
     public static int[] solution3(int[] nums) {
         int k = 0; // nums中从[0..k)的元素均为非0元素
+        // 测试数据 0，1，0，3，2
         for (int i = 0; i < nums.length; i++) {
             if (nums[i] != 0) {
                 if (i != k) {
