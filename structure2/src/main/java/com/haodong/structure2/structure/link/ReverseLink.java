@@ -15,10 +15,17 @@ public class ReverseLink {
     public static void main(String[] args){
 
     }
-    static LinkedList<Integer> reverse(LinkedList<Integer>link){
-        int newHead=link.getFirst();
-        return null;
-    }
+//    static LinkedList<Integer> reverse(LinkedList<Integer>link){
+//        ListNode p1 = head, p2 = null;
+//
+//        while(p1 != null){
+//            p1 = p1.next;
+//            head.next = p2;
+//            p2 = head;
+//            head = p1;
+//        }
+//        return p2;
+//    }
 
 
 }
