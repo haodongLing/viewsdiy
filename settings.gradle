@@ -1,5 +1,15 @@
 
-include  ':designmode', ':matisse', ':common', ':practice.rxjava', ':pracretrofit', ':zerenlian', ':facade', ':structure2', ':pracdagger', ':pracmodule',
+include  ':designmode',
+        ':matisse',
+        ':common',
+        ':practice.rxjava',
+        ':pracretrofit',
+        ':zerenlian',
+        ':facade',
+        ':structure2' ,
+        ':pracmodule',
+        ':customui',
+        'chapter1'
 //        ':structure',
 //        ':mystruture',
-        ':customui', 'chapter1'
+//        ':pracdagger'
