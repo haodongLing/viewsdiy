@@ -3,9 +3,6 @@
   <component name="GradleSettings">
     <option name="linkedExternalProjectsSettings">
       <GradleProjectSettings>
-        <compositeConfiguration>
-          <compositeBuild compositeDefinitionSource="SCRIPT" />
-        </compositeConfiguration>
         <option name="distributionType" value="DEFAULT_WRAPPED" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="modules">
@@ -13,17 +10,19 @@
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/chapter1" />
             <option value="$PROJECT_DIR$/common" />
+            <option value="$PROJECT_DIR$/customui" />
             <option value="$PROJECT_DIR$/designmode" />
             <option value="$PROJECT_DIR$/facade" />
             <option value="$PROJECT_DIR$/matisse" />
-            <option value="$PROJECT_DIR$/mystruture" />
+            <option value="$PROJECT_DIR$/pracmodule" />
             <option value="$PROJECT_DIR$/pracretrofit" />
             <option value="$PROJECT_DIR$/practice.rxjava" />
-            <option value="$PROJECT_DIR$/viewday1" />
+            <option value="$PROJECT_DIR$/structure2" />
             <option value="$PROJECT_DIR$/zerenlian" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />
+        <option name="testRunner" value="PLATFORM" />
       </GradleProjectSettings>
     </option>
   </component>
