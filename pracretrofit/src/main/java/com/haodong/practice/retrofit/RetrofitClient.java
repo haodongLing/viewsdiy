@@ -1,9 +1,6 @@
 package com.haodong.practice.retrofit;
 
-import android.util.Log;
-
 import okhttp3.OkHttpClient;
-import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
@@ -18,12 +15,6 @@ public class RetrofitClient {
     static {
         OkHttpClient okHttpClient = new OkHttpClient
                 .Builder()
-                .addInterceptor(new HttpLoggingInterceptor(new HttpLoggingInterceptor.Logger() {
-                    @Override
-                    public void log(String message) {
-                        Log.e("TAG",message);
-                    }
-                }).setLevel(HttpLoggingInterceptor.Level.BODY))
                 .build();
         // 各种套路和招式 ，发现问题解决问题，基础，源码的理解
         // 1. 没打印？

@@ -86,7 +86,7 @@ public class DownloadRunnable implements Runnable {
             HttpUtils.close(randomAccessFile);
             // 存到数据库，数据库怎么存？
             downloadEntity.setProgress(mProgress);
-            DaoManagerHelper.getManager().addEntity(downloadEntity);
+//            DaoManagerHelper.getManager().addEntity(downloadEntity);
         }
 
     }

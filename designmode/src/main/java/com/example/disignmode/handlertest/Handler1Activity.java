@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.widget.TextView;
 
 import com.example.disignmode.R;
+import com.example.haodong.common.util.LogUtil;
 
 import java.lang.ref.WeakReference;
 
@@ -23,13 +24,16 @@ public class Handler1Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_handler1);
         mTvShow = findViewById(R.id.handler1_tv);
-        mUiHandler = new Handler() {
+
+        mUiHandler = new Handler(Looper.getMainLooper()) {
             @Override
             public void handleMessage(Message msg) {
                 switch (msg.what) {
                     case DownLoadHandlerThread.UPDATE_UI:
                         String str = (String) msg.obj;
+                        LogUtil.i(Thread.currentThread().getName());
                         mTvShow.setText(str);
+                        downLoadHandlerThread.quitSafely();
                 }
             }
         };
@@ -37,7 +41,7 @@ public class Handler1Activity extends AppCompatActivity {
         downLoadHandlerThread.start();
         downLoadHandlerThread.setmUIHandler(mUiHandler);
         mWorkHandler=new Handler(downLoadHandlerThread.getLooper(),downLoadHandlerThread);
-        Message message =new Message();
+        Message message =Message.obtain();
         message.what=DownLoadHandlerThread.START_DOWNLOAD;
         mWorkHandler.sendMessage(message);
     }

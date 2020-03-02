@@ -15,8 +15,8 @@ import org.json.JSONObject;
  * email 105354999@qq.com
  */
 public class LogUtil {
-  public static boolean hideLog = !BuildConfig.DEBUG;
-//  public static boolean hideLog=false;
+//  public static boolean hideLog = !BuildConfig.DEBUG;
+  public static boolean hideLog=false;
   public static final String TAG = "FFLog";
   private static final String LINE_SEPARATOR = System.getProperty("line.separator");
   /**

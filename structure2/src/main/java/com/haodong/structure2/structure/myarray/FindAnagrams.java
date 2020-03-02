@@ -12,7 +12,4 @@ public class FindAnagrams {
 
     }
 
-    public List<Integer> findAnagrams(String s, String p) {
-
-    }
 }

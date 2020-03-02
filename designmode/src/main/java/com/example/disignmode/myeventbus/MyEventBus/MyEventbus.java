@@ -1,6 +1,11 @@
 package com.example.disignmode.myeventbus.MyEventBus;
 
-import org.greenrobot.eventbus.EventBusBuilder;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.concurrent.CopyOnWriteArrayList;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 /**
  * describe :
@@ -9,7 +14,11 @@ import org.greenrobot.eventbus.EventBusBuilder;
  * email 105354999@qq.com
  */
 public class MyEventbus {
+    private final static ExecutorService DEFAULT_EXECUTOR_SERVICE = Executors.newCachedThreadPool();
     public static volatile MyEventbus defaultInstance;
+    private static final EventBusBuilder DEFAULT_BUILDER = new EventBusBuilder();
+    private static final Map<Class<?>, List<Class<?>>> eventTypesCache = new HashMap<>();
+//    private final Map<Class<?>, CopyOnWriteArrayList<SubscriberMethod>>
 
     public static MyEventbus getDefault() {
         if (defaultInstance == null) {
@@ -20,5 +29,13 @@ public class MyEventbus {
             }
         }
         return defaultInstance;
+    }
+
+    public MyEventbus() {
+        this(DEFAULT_BUILDER);
+    }
+
+    MyEventbus(EventBusBuilder builder) {
+
     }
 }

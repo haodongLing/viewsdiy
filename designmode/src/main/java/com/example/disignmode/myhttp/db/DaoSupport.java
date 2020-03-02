@@ -152,9 +152,6 @@ public class DaoSupport<T> implements IDaoSupport<T> {
         return mSqLiteDatabase.delete(DaoUtil.getTableName(mClazz), whereClause, whereArgs);
     }
 
-    /**
-     * 更新  这些你需要对  最原始的写法比较明了 extends
-     */
     public int update(T obj, String whereClause, String... whereArgs) {
         ContentValues values = contentValuesByObj(obj);
         return mSqLiteDatabase.update(DaoUtil.getTableName(mClazz),

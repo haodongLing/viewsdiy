@@ -5,12 +5,6 @@ import android.content.Context;
 
 import java.util.List;
 
-/**
- * description:
- * author: Darren on 2017/11/21 18:07
- * email: 240336124@qq.com
- * version: 1.0
- */
 public final class DaoManagerHelper {
     private final static DaoManagerHelper sManager = new DaoManagerHelper();
     IDaoSupport<DownloadEntity> mDaoSupport;

@@ -4,6 +4,9 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.HandlerThread;
 import android.os.Message;
+import android.util.Log;
+
+import com.example.haodong.common.util.LogUtil;
 
 /**
  * describe :
@@ -32,6 +35,7 @@ public class DownLoadHandlerThread extends HandlerThread  implements Handler.Cal
         switch (msg.what){
             case START_DOWNLOAD:
                 try {
+                    LogUtil.i("current thread"+Thread.currentThread().getName());
                     Thread.sleep(3000);
                 } catch (InterruptedException e) {
                     e.printStackTrace();

@@ -191,20 +191,20 @@ public class EventBusBuilder {
      *
      * @throws EventBusException if there's already a default EventBus instance in place
      */
-//    public EventBus installDefaultEventBus() {
-//        synchronized (EventBus.class) {
-//            if (EventBus.defaultInstance != null) {
-//                throw new EventBusException("Default instance already exists." +
-//                        " It may be only set once before it's used the first time to ensure consistent behavior.");
-//            }
-//            EventBus.defaultInstance = build();
-//            return EventBus.defaultInstance;
-//        }
-//    }
+    public MyEventbus installDefaultEventBus() {
+        synchronized (MyEventbus.class) {
+            if (MyEventbus.defaultInstance != null) {
+                throw new EventBusException("Default instance already exists." +
+                        " It may be only set once before it's used the first time to ensure consistent behavior.");
+            }
+            MyEventbus.defaultInstance = build();
+            return MyEventbus.defaultInstance;
+        }
+    }
 
-//    /** Builds an EventBus based on the current configuration. */
-//    public EventBus build() {
-//        return new EventBus(this);
-//    }
+    /** Builds an EventBus based on the current configuration. */
+    public MyEventbus build() {
+        return new MyEventbus(this);
+    }
 
 }

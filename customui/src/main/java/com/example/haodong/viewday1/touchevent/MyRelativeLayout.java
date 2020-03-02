@@ -36,6 +36,7 @@ public class MyRelativeLayout extends RelativeLayout {
                 break;
             case MotionEvent.ACTION_UP:
                 LogUtil.i("dispatchTouchEvent---ACTION_UP");
+                break;
             case MotionEvent.ACTION_CANCEL:
                 LogUtil.i("dispatchTouchEvent---ACTION_CANCEL");
                 break;
@@ -54,6 +55,7 @@ public class MyRelativeLayout extends RelativeLayout {
                 break;
             case MotionEvent.ACTION_UP:
                 LogUtil.i("onInterceptTouchEvent---ACTION_UP");
+                break;
             case MotionEvent.ACTION_CANCEL:
                 LogUtil.i("onInterceptTouchEvent---ACTION_CANCEL");
                 break;
@@ -72,6 +74,7 @@ public class MyRelativeLayout extends RelativeLayout {
                 break;
             case MotionEvent.ACTION_UP:
                 LogUtil.i("onTouchEvent---ACTION_UP");
+                break;
             case MotionEvent.ACTION_CANCEL:
                 LogUtil.i("onTouchEvent---ACTION_CANCEL");
                 break;

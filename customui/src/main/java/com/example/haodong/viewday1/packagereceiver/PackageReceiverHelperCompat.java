@@ -31,7 +31,7 @@ public abstract class PackageReceiverHelperCompat {
     protected PackageReceiverHelperCompat() {
     }
 
-    private static PackageReceiverHelperCompat sInstance;
+    private volatile static PackageReceiverHelperCompat sInstance;
     private static final Object sInstanceLock = new Object();
 
     public static PackageReceiverHelperCompat getsInstance(Context context) {
