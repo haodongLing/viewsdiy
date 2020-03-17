@@ -34,13 +34,19 @@ android {
             keyPassword "linghaoDo"
         }
     }
+    sourceSets {
+        main {
+            aidl.srcDirs = ['src/main/java']
+        }
+    }
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
 
 }
- def daggerVer=2.15
+def daggerVer = 2.15
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 

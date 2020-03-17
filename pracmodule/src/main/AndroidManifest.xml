@@ -9,16 +9,24 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
-
-        </activity>
-        <activity android:name=".mydagger.DaggerActivity">
+        <activity android:name=".mycontentprovider.ContentProviderActivity"></activity>
+        <activity android:name=".myservice.ServiceActivity1">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".MainActivity" />
+        <activity android:name=".mydagger.DaggerActivity"></activity>
+
+        <service android:name=".myservice.TestOneService"></service>
+
+        <provider
+            android:name=".mycontentprovider.StudentContentProvider"
+            android:authorities="com.haodong.pracmodule.mycontentprovider.StudentContentProvider"
+            android:process=":provider"
+            android:exported="true" />
     </application>
 
 </manifest>

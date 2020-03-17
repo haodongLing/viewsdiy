@@ -1,4 +1,4 @@
-package com.haodong.structure2.structure.bst;
+package com.haodong.structure2.structure.mytree;
 
 /**
  * describe :

@@ -1,4 +1,4 @@
-package com.haodong.structure2.structure.bst;
+package com.haodong.structure2.structure.mytree;
 
 /**
  * created by linghaoDo on 2019-09-16
