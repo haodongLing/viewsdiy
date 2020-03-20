@@ -13,7 +13,7 @@ import java.io.RandomAccessFile;
 import okhttp3.Response;
 
 /**
- * describe :
+ * describe : 每一个下载任务中，负责下载数据的子线程
  * date on 2019/5/2
  * author linghailong
  * email 105354999@qq.com

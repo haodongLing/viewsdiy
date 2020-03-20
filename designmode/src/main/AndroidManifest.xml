@@ -11,7 +11,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".myaop.Aop1Activity"></activity>
+        <activity android:name=".handlertest.Handler2Activity"></activity>
+        <activity android:name=".myannotation.AnnotationActivity" />
+        <activity android:name=".myaop.Aop1Activity" />
         <activity android:name=".myrxjava.RxActivity" />
         <activity android:name=".mvp.Login2Activity" />
         <activity android:name=".myglide.GlideActivity" />

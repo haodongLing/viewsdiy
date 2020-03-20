@@ -20,7 +20,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 import okhttp3.OkHttpClient;
 
 /**
- * describe :
+ * describe : 每一个下载任务
  * date on 2019/5/2
  * author linghailong
  * email 105354999@qq.com
@@ -67,6 +67,7 @@ public class DownloadTask {
             long threadSize=mContentLength/THREAD_SIZE;
             long start=i*threadSize;
             long end=(i+threadSize)-1;
+            // 除不尽的情况
             if (i == THREAD_SIZE - 1) {
                 end = mContentLength - 1;
             }
