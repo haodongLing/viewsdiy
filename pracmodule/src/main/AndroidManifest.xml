@@ -9,16 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".recyclerviewstudy.Recycler2Activity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-
-        </activity>
+        <activity android:name=".myipc.IPC1Activity"></activity>
+        <activity android:name=".recyclerviewstudy.Recycler2Activity"></activity>
         <activity android:name=".mycontentprovider.ContentProviderActivity" />
-        <activity android:name=".myservice.ServiceActivity1"></activity>
+        <activity android:name=".myservice.ServiceActivity1" />
         <activity android:name=".MainActivity" />
         <activity android:name=".mydagger.DaggerActivity" />
 
@@ -30,9 +24,20 @@
             android:exported="true"
             android:process=":provider" />
 
-        <activity android:name=".recyclerviewstudy.MainActivity">
+        <activity android:name=".memory.Main3Activity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
+        <activity android:name=".memory.MemoryLeakActivity" />
+        <service android:name=".myipc.MessageService">
+            <intent-filter >
+                <action android:name="com.haodong.pracmodule.myipc.MessageService"/>
+                <category android:name="android.intent.category.DEFAULT"></category>
+            </intent-filter>
+        </service>
     </application>
 
 </manifest>

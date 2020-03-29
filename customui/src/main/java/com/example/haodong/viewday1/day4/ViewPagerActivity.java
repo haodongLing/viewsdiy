@@ -1,5 +1,6 @@
 package com.example.haodong.viewday1.day4;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -38,6 +39,12 @@ public class ViewPagerActivity extends AppCompatActivity {
         initIndicator();
         initViewPager();
     }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+    }
+
 
     /**
      * 初始化ViewPager

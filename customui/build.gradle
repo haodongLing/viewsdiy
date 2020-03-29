@@ -4,7 +4,6 @@ android {
     compileSdkVersion 28
 
 
-
     defaultConfig {
         applicationId "com.example.haodong.viewday1"
         minSdkVersion 22

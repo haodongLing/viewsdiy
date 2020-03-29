@@ -1,7 +1,10 @@
 package com.example.chapter1.electric;
 
 import android.app.IntentService;
+import android.content.ComponentName;
 import android.content.Intent;
+import android.content.ServiceConnection;
+import android.os.IBinder;
 import android.support.annotation.Nullable;
 
 /**
@@ -24,4 +27,22 @@ public class MyService extends IntentService{
     protected void onHandleIntent(@Nullable Intent intent) {
 
     }
+    ServiceConnection connection=new ServiceConnection() {
+        @Override
+        public void onServiceConnected(ComponentName name, IBinder service) {
+
+        }
+
+        @Override
+        public void onServiceDisconnected(ComponentName name) {
+
+        }
+    };
+
+    @Nullable
+    @Override
+    public IBinder onBind(Intent intent) {
+        return super.onBind(intent);
+    }
+
 }

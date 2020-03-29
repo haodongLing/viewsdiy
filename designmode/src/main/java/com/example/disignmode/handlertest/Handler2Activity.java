@@ -6,7 +6,11 @@ import android.os.Bundle;
 import com.example.disignmode.R;
 import com.example.haodong.common.util.LogUtil;
 
+import java.util.concurrent.CountDownLatch;
+
 public class Handler2Activity extends AppCompatActivity {
+
+    private CountDownLatch countDownLatch = new CountDownLatch(1);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -15,6 +19,7 @@ public class Handler2Activity extends AppCompatActivity {
         LogUtil.i("onCreate");
 
     }
+
     @Override
     public void onAttachedToWindow() {
         super.onAttachedToWindow();
