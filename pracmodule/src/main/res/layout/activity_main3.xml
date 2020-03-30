@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".myipc.Main3Activity">
+
+    <Button
+        android:id="@+id/btn_start_local_service"
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:text="btn_start_local_service" />
+
+    <Button
+        android:id="@+id/btn_close_local_service"
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:layout_marginTop="20dp"
+        android:text="btn_close_local_service" />
+
+    <Button
+        android:id="@+id/btn_start_remote_service"
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:layout_marginTop="@dimen/dp_20"
+        android:text="btn_start_remote_service" />
+
+</LinearLayout>

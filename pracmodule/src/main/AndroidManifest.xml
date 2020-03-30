@@ -9,8 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".myipc.IPC1Activity"></activity>
-        <activity android:name=".recyclerviewstudy.Recycler2Activity"></activity>
+        <activity android:name=".myipc.Main3Activity"></activity>
+        <activity android:name=".myipc.IPC1Activity" />
+        <activity android:name=".recyclerviewstudy.Recycler2Activity" />
         <activity android:name=".mycontentprovider.ContentProviderActivity" />
         <activity android:name=".myservice.ServiceActivity1" />
         <activity android:name=".MainActivity" />
@@ -32,12 +33,24 @@
             </intent-filter>
         </activity>
         <activity android:name=".memory.MemoryLeakActivity" />
+
         <service android:name=".myipc.MessageService">
-            <intent-filter >
-                <action android:name="com.haodong.pracmodule.myipc.MessageService"/>
-                <category android:name="android.intent.category.DEFAULT"></category>
+            <intent-filter>
+                <action android:name="com.haodong.pracmodule.myipc.MessageService" />
+
+                <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </service>
+        <service android:name=".myipc.LocalService"
+            android:enabled="true"
+            android:exported="true"></service>
+        <service android:name=".myipc.RemoteService"
+            android:exported="true"
+            android:enabled="true"
+            android:process=":RemoteProcess">
+
+        </service>
+
     </application>
 
 </manifest>
