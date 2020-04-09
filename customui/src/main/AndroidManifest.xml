@@ -9,28 +9,29 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".touchevent.TouchActivity">
+        <activity android:name=".myviewpager.ViewPagerActivity2">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".touchevent.TouchActivity">
+
+        </activity>
         <activity android:name=".MainActivity" />
         <activity android:name=".viewday2.StepViewActivity" />
         <activity android:name=".day7.SeventhActivity" />
         <activity android:name=".day7.QuadViewActivity" />
-        <activity android:name=".day8.Day8Activity"></activity>
-        <activity android:name=".day10.Day10Activity"></activity>
+        <activity android:name=".day8.Day8Activity" />
+        <activity android:name=".day10.Day10Activity" />
         <activity android:name=".day9.Day9Activity" />
         <activity android:name=".day12.Day12Activity" />
         <activity android:name=".day14.Day14Activity" />
-        <activity android:name=".day16.Day16Activity"></activity>
-        <activity android:name=".iphone.IponeActivity"></activity>
-        <activity android:name=".day24.BeciaActivity"></activity>
-        <activity android:name=".mynested.InventoryStatusActivity">
-
-        </activity>
+        <activity android:name=".day16.Day16Activity" />
+        <activity android:name=".iphone.IponeActivity" />
+        <activity android:name=".day24.BeciaActivity" />
+        <activity android:name=".mynested.InventoryStatusActivity"></activity>
     </application>
 
 </manifest>
