@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.haodong.pracmodule">
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.NFC" />
 
     <application
         android:allowBackup="true"
@@ -9,7 +15,17 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".myipc.Main3Activity"></activity>
+        <activity android:name=".myretrofit.RetrofitActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".myhook.Hook1Activity">
+
+        </activity>
+        <activity android:name=".myipc.Main3Activity" />
         <activity android:name=".myipc.IPC1Activity" />
         <activity android:name=".recyclerviewstudy.Recycler2Activity" />
         <activity android:name=".mycontentprovider.ContentProviderActivity" />
@@ -25,13 +41,7 @@
             android:exported="true"
             android:process=":provider" />
 
-        <activity android:name=".memory.Main3Activity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+        <activity android:name=".memory.Main3Activity"></activity>
         <activity android:name=".memory.MemoryLeakActivity" />
 
         <service android:name=".myipc.MessageService">
@@ -41,16 +51,15 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </service>
-        <service android:name=".myipc.LocalService"
+        <service
+            android:name=".myipc.LocalService"
             android:enabled="true"
-            android:exported="true"></service>
-        <service android:name=".myipc.RemoteService"
+            android:exported="true" />
+        <service
+            android:name=".myipc.RemoteService"
+            android:enabled="true"
             android:exported="true"
-            android:enabled="true"
-            android:process=":RemoteProcess">
-
-        </service>
-
+            android:process=":RemoteProcess" />
     </application>
 
 </manifest>

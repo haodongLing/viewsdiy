@@ -59,4 +59,7 @@ dependencies {
 
     //RecyclerView依赖
     api 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.40'
+    api('com.github.ihsanbal:LoggingInterceptor:3.1.0-rc5') {
+        exclude group: 'org.json', module: 'json'
+    }
 }
