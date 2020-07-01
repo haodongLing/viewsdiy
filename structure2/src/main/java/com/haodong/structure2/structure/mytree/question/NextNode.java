@@ -8,3 +8,7 @@ package com.haodong.structure2.structure.mytree.question;
 public class NextNode {
 
 }
+
+/**
+ * Definition for a binary tree node.
+ */
