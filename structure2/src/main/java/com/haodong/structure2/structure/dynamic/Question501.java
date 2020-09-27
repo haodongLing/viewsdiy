@@ -1,5 +1,7 @@
 package com.haodong.structure2.structure.dynamic;
 
+import com.haodong.structure2.structure.TreeNode;
+
 /**
  * created by linghaoDo on 2020/9/24
  * description:

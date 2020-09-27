@@ -1,4 +1,4 @@
-package com.haodong.structure2.structure.dynamic;
+package com.haodong.structure2.structure;
 
 /**
  * created by linghaoDo on 2020/9/24
@@ -7,9 +7,9 @@ package com.haodong.structure2.structure.dynamic;
  * version:
  */
 public class TreeNode {
-    int val;
-    TreeNode left;
-    TreeNode right;
+    public int val;
+    public TreeNode left;
+    public TreeNode right;
 
     TreeNode(int x) {
         val = x;
