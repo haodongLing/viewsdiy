@@ -1,4 +1,4 @@
-package com.example.haodong.viewday1.day4;
+ package com.example.haodong.viewday1.day4;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -31,6 +31,12 @@ public class ItemFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_item, null);
         TextView tv = (TextView) view.findViewById(R.id.text);
+        tv.post(new Runnable() {
+            @Override
+            public void run() {
+
+            }
+        });
         Bundle bundle = getArguments();
         tv.setText(bundle.getString("title"));
         return view;

@@ -18,16 +18,17 @@
             <option value="$PROJECT_DIR$/facade" />
             <option value="$PROJECT_DIR$/matisse" />
             <option value="$PROJECT_DIR$/multiblutooth" />
+            <option value="$PROJECT_DIR$/pracarouter" />
             <option value="$PROJECT_DIR$/pracdagger" />
             <option value="$PROJECT_DIR$/pracmodule" />
             <option value="$PROJECT_DIR$/pracretrofit" />
-            <option value="$PROJECT_DIR$/practice.rxjava" />
+            <option value="$PROJECT_DIR$/remoteapp" />
             <option value="$PROJECT_DIR$/structure2" />
             <option value="$PROJECT_DIR$/unifypayexample" />
-            <option value="$PROJECT_DIR$/zerenlian" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />
+        <option name="useQualifiedModuleNames" value="true" />
       </GradleProjectSettings>
     </option>
   </component>

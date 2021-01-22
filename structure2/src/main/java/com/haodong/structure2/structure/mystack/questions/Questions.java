@@ -46,6 +46,11 @@ public class Questions {
         return stack.size() == 0;
     }
 
+    @Override
+    public int hashCode() {
+        return super.hashCode();
+    }
+
     public static void main(String[] args) {
         String s = "{[]}";
         System.out.println("solution-->" + isValid(s));

@@ -88,4 +88,71 @@ public class Questions {
         return new ListNode(0);
 
     }
+
+    public void printCommonPart(ListNode head1, ListNode head2) {
+
+        while (head1 != null && head2 != null) {
+            if (head1.val < head2.val) {
+                head1 = head1.next;
+            } else if (head1.val == head2.val) {
+                System.out.println(" " + head1.val);
+                head1 = head1.next;
+                head2 = head2.next;
+            } else if (head1.val > head2.val) {
+                head2 = head2.next;
+            }
+        }
+
+    }
+
+    public ListNode removeLastKthNode(ListNode head, int lastKth) {
+        if (head == null || lastKth < 1) {
+            return head;
+
+        }
+        ListNode cur = head;
+        while (cur != null) {
+            lastKth--;
+            cur = cur.next;
+
+        }
+        if (lastKth == 0) {
+            head = head.next;
+        }
+        if (lastKth < 0) {
+            cur = head;
+            while (++lastKth != 0) {
+                cur = cur.next;
+            }
+            cur.next = cur.next.next;
+        }
+        return head;
+    }
+
+    public ListNode reversePart(ListNode head, int from, int to) {
+        int len = 0;
+        ListNode node1 = head;
+        ListNode fPre = null;
+        ListNode tPos = null;
+        while (node1 != null) {
+            len++;
+            fPre = len == from - 1 ? node1 : fPre;
+            tPos = len == to + 1 ? node1 : tPos;
+            node1 = node1.next;
+        }
+        if (from > to || from < 1 || to > len) {
+            return head;
+        }
+        node1 = fPre == null ? head : fPre.next;
+        ListNode node2 = node1.next;
+        node1.next = tPos;
+        ListNode next = null;
+        while (node2 != tPos) {
+            next = node2.next;
+            node2.next = node1;
+            node1 = node2;
+            node2 = next;
+        }
+        return node1;
+    }
 }

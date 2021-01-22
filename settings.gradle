@@ -1,10 +1,12 @@
+include ':pracarouter'
+include ':remoteapp'
 include ':multiblutooth'
 include  ':designmode',
         ':matisse',
         ':common',
-        ':practice.rxjava',
+//        ':practice.rxjava',
         ':pracretrofit',
-        ':zerenlian',
+//        ':zerenlian',
         ':facade',
         ':structure2' ,
         ':pracmodule',

@@ -83,7 +83,7 @@ public class MainActivity extends AppCompatActivity implements UnifyPayListener 
      */
     private ClearEditText mMerchantUserId;
     /**
-     *  商户订单号
+     * 商户订单号
      */
     private ClearEditText mMerOrderId;
     /**
@@ -156,7 +156,7 @@ public class MainActivity extends AppCompatActivity implements UnifyPayListener 
     /**
      * 分帐添加分帐参数按钮
      */
-    private View addDivisionInfo ;
+    private View addDivisionInfo;
     /**
      * 分帐参数展示
      */
@@ -171,7 +171,7 @@ public class MainActivity extends AppCompatActivity implements UnifyPayListener 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Button button = (Button)findViewById(R.id.btn_order_pay);
+        Button button = (Button) findViewById(R.id.btn_order_pay);
         mMerchantId = (ClearEditText) findViewById(R.id.merchantId);
         mMerchantUserId = (ClearEditText) findViewById(R.id.merchantUserId);
         mMerOrderId = (ClearEditText) findViewById(R.id.merOrderID);
@@ -185,27 +185,27 @@ public class MainActivity extends AppCompatActivity implements UnifyPayListener 
 //        mEditMsgSrc.setSelection(0, true);
         mEditSrcReserve = (ClearEditText) findViewById(R.id.edit_src_reserve);
         //支付方式选择
-        rgvalue=(RadioGroup)findViewById(R.id.radio_group);
-        wxtype=(RadioButton)findViewById(R.id.weixin_pay);
+        rgvalue = (RadioGroup) findViewById(R.id.radio_group);
+        wxtype = (RadioButton) findViewById(R.id.weixin_pay);
         alipay = (RadioButton) findViewById(R.id.alibaba_pay);
         rgvalue.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
 
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
                 // TODO Auto-generated method stub
-                if(mCurrentEnvironment == ENV_ALIPAY_UAT && checkedId != alipay.getId()){
+                if (mCurrentEnvironment == ENV_ALIPAY_UAT && checkedId != alipay.getId()) {
                     group.check(alipay.getId());
-                    Toast.makeText(getApplicationContext(),"UAT环境只支持支付宝",Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), "UAT环境只支持支付宝", Toast.LENGTH_LONG).show();
                     return;
                 }
 
                 if (wxtype.getId() == checkedId) {
                     typetag = 1;//微信
                 }
-                if(alipay.getId() == checkedId){
+                if (alipay.getId() == checkedId) {
                     typetag = 2;//zhifubao
                 }
-                if(checkedId == R.id.cloud_quick_pay){
+                if (checkedId == R.id.cloud_quick_pay) {
                     typetag = TYPE_CLOUD_QUICK_PAY;//云闪付;
                 }
                 switchParam(typetag, mCurrentEnvironment);
@@ -215,9 +215,10 @@ public class MainActivity extends AppCompatActivity implements UnifyPayListener 
         mSpinnerEnvironMent = (Spinner) findViewById(R.id.spinner_environment);
         mSpinnerEnvironMent.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             private int lastPostion;
+
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int postion, long l) {
-                switch (postion){
+                switch (postion) {
                     case 0:
                         mCurrentEnvironment = ENV_PRODUCT;
                         break;
@@ -228,9 +229,9 @@ public class MainActivity extends AppCompatActivity implements UnifyPayListener 
                         mCurrentEnvironment = ENV_TEST_TWO;
                         break;
                     case 3:
-                        if(typetag != TYPE_ALIPAY){
-                            mSpinnerEnvironMent.setSelection(lastPostion,true);
-                            Toast.makeText(getApplicationContext(),"UAT环境只支持支付宝",Toast.LENGTH_LONG).show();
+                        if (typetag != TYPE_ALIPAY) {
+                            mSpinnerEnvironMent.setSelection(lastPostion, true);
+                            Toast.makeText(getApplicationContext(), "UAT环境只支持支付宝", Toast.LENGTH_LONG).show();
                             return;
                         }
 
@@ -242,7 +243,8 @@ public class MainActivity extends AppCompatActivity implements UnifyPayListener 
             }
 
             @Override
-            public void onNothingSelected(AdapterView<?> adapterView) {}
+            public void onNothingSelected(AdapterView<?> adapterView) {
+            }
         });
 
         mSpinnerEnvironMent.setSelection(0, true);
@@ -274,18 +276,20 @@ public class MainActivity extends AppCompatActivity implements UnifyPayListener 
             ActivityCompat.requestPermissions(this, permissions, 1);
         }
     }
+
     /**
      * 分帐相关信息集合
      */
     JSONArray divisionInfosArray = new JSONArray();
+
     /**
      * 分帐相关信息初始化
      */
-    void initDivisionView(){
-        mPlatformAmount= (ClearEditText) findViewById(R.id.platform_amount);
-        mSubMid= (ClearEditText) findViewById(R.id.sub_mid);
-        mSubMerOrderId=(ClearEditText) findViewById(R.id.sub_mer_orderId);
-        mSubTotalAmount=(ClearEditText) findViewById(R.id.sub_total_amount);
+    void initDivisionView() {
+        mPlatformAmount = (ClearEditText) findViewById(R.id.platform_amount);
+        mSubMid = (ClearEditText) findViewById(R.id.sub_mid);
+        mSubMerOrderId = (ClearEditText) findViewById(R.id.sub_mer_orderId);
+        mSubTotalAmount = (ClearEditText) findViewById(R.id.sub_total_amount);
         cbDivision = (CheckBox) findViewById(R.id.cb_division);
         layoutDivision = findViewById(R.id.layout_division);
         divisionInfo = (ClearEditText) findViewById(R.id.et_division_info);
@@ -293,17 +297,17 @@ public class MainActivity extends AppCompatActivity implements UnifyPayListener 
         addDivisionInfo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(TextUtils.isEmpty(mSubMerOrderId.getText())&&TextUtils.isEmpty(mSubMid.getText())
-                        &&TextUtils.isEmpty(mSubTotalAmount.getText())){
-                    Toast.makeText(getApplication(),"商户分帐子信息不能为空",Toast.LENGTH_SHORT).show();
+                if (TextUtils.isEmpty(mSubMerOrderId.getText()) && TextUtils.isEmpty(mSubMid.getText())
+                        && TextUtils.isEmpty(mSubTotalAmount.getText())) {
+                    Toast.makeText(getApplication(), "商户分帐子信息不能为空", Toast.LENGTH_SHORT).show();
                     return;
                 }
 
                 JSONObject object = new JSONObject();
                 try {
-                    object.put("mid",mSubMid.getText());
-                    object.put("merOrderId",mSubMerOrderId.getText());
-                    object.put("totalAmount",mSubTotalAmount.getText());
+                    object.put("mid", mSubMid.getText());
+                    object.put("merOrderId", mSubMerOrderId.getText());
+                    object.put("totalAmount", mSubTotalAmount.getText());
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
@@ -314,14 +318,15 @@ public class MainActivity extends AppCompatActivity implements UnifyPayListener 
         cbDivision.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
-                if(checked){
+                if (checked) {
                     layoutDivision.setVisibility(compoundButton.VISIBLE);
-                }else {
+                } else {
                     layoutDivision.setVisibility(compoundButton.GONE);
                 }
             }
         });
     }
+
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
@@ -335,7 +340,8 @@ public class MainActivity extends AppCompatActivity implements UnifyPayListener 
                             //judgePermission();//重新申请权限
                             return;
                         } else {
-                            finish();                        }
+                            finish();
+                        }
                     }
                 }
                 break;
@@ -343,10 +349,11 @@ public class MainActivity extends AppCompatActivity implements UnifyPayListener 
                 break;
         }
     }
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        Log.d("ddebug","---onActivityResult---");
+        Log.d("ddebug", "---onActivityResult---");
         /**
          * 处理银联云闪付手机支付控件返回的支付结果
          */
@@ -376,10 +383,11 @@ public class MainActivity extends AppCompatActivity implements UnifyPayListener 
         } else if (str.equalsIgnoreCase("cancel")) {
             msg = "用户取消了云闪付支付";
         }
-        Toast.makeText(this,msg,Toast.LENGTH_LONG).show();
+        Toast.makeText(this, msg, Toast.LENGTH_LONG).show();
     }
-    private void switchParam(int type, int currentEnvironment){
-        Log.i(TAG, "type="+type+", currentEnvironment="+currentEnvironment);
+
+    private void switchParam(int type, int currentEnvironment) {
+        Log.i(TAG, "type=" + type + ", currentEnvironment=" + currentEnvironment);
         if (type == TYPE_WEIXIN) {
             switch (currentEnvironment) {
                 case ENV_TEST_ONE:
@@ -467,79 +475,79 @@ public class MainActivity extends AppCompatActivity implements UnifyPayListener 
                     break;
             }
         }
-        Log.d(TAG,"mMd5SecretKey = " + mMd5SecretKey);
+        Log.d(TAG, "mMd5SecretKey = " + mMd5SecretKey);
     }
 
-    private String getOrderId(){
+    private String getOrderId() {
         Random random = new Random();
         StringBuilder sb = new StringBuilder("3028"); //weixin
         SimpleDateFormat df = new SimpleDateFormat("yyyyMMddHHmmssSSS");
         sb.append(df.format(new Date()));
-        for(int i=0; i < 7; i++){
+        for (int i = 0; i < 7; i++) {
             sb.append(random.nextInt(10));
         }
         return sb.toString();
     }
-    private String getOrderId4Weixin(){
+
+    private String getOrderId4Weixin() {
         Random random = new Random();
         StringBuilder sb = new StringBuilder("3816"); //weixin 3028
         SimpleDateFormat df = new SimpleDateFormat("yyyyMMddHHmmssSSS");
         sb.append(df.format(new Date()));
-        for(int i=0; i < 7; i++){
+        for (int i = 0; i < 7; i++) {
             sb.append(random.nextInt(10));
         }
         return sb.toString();
     }
-    private String getPostOrderId(){
+
+    private String getPostOrderId() {
         Random random = new Random();
         StringBuilder sb = new StringBuilder("3028"); //weixin
         SimpleDateFormat df = new SimpleDateFormat("yyyyMMddHHmmssSSS");
         sb.append(df.format(new Date()));
-        for(int i=0; i < 7; i++){
+        for (int i = 0; i < 7; i++) {
             sb.append(random.nextInt(10));
         }
         return sb.toString();
     }
 
-    private String getProOrderId(){
+    private String getProOrderId() {
         Random random = new Random();
         StringBuilder sb = new StringBuilder("3245"); //支付宝、微信生产环境
         SimpleDateFormat df = new SimpleDateFormat("yyyyMMddHHmmssSSS");
         sb.append(df.format(new Date()));
-        for(int i=0; i < 7; i++){
+        for (int i = 0; i < 7; i++) {
             sb.append(random.nextInt(10));
         }
         return sb.toString();
     }
 
-    private String getCommonOrder(String preFix){
+    private String getCommonOrder(String preFix) {
         Random random = new Random();
         StringBuilder sb = new StringBuilder(preFix); //支付宝、微信生产环境
         SimpleDateFormat df = new SimpleDateFormat("yyyyMMddHHmmssSSS");
         sb.append(df.format(new Date()));
-        for(int i=0; i < 7; i++){
+        for (int i = 0; i < 7; i++) {
             sb.append(random.nextInt(10));
         }
         return sb.toString();
     }
+
     @Override
     public void onResult(String resultCode, String resultInfo) {
-        Log.d(TAG, "onResult resultCode="+resultCode+", resultInfo="+resultInfo);
-        mPayResult.setText("onResult resultCode="+resultCode+", resultInfo="+resultInfo);
+        Log.d(TAG, "onResult resultCode=" + resultCode + ", resultInfo=" + resultInfo);
+        mPayResult.setText("onResult resultCode=" + resultCode + ", resultInfo=" + resultInfo);
     }
 
-    private class GetPrepayIdTask extends AsyncTask<Void, Void, String>
-    {
+    private class GetPrepayIdTask extends AsyncTask<Void, Void, String> {
 
         private ProgressDialog dialog;
 
-        public GetPrepayIdTask()
-        {
+        public GetPrepayIdTask() {
         }
 
         @Override
-        protected void onPreExecute()
-        {
+        protected void onPreExecute() {
             dialog =
                     ProgressDialog.show(MainActivity.this,
                             getString(R.string.app_tip),
@@ -547,8 +555,7 @@ public class MainActivity extends AppCompatActivity implements UnifyPayListener 
         }
 
         @Override
-        protected void onPostExecute(String result)
-        {
+        protected void onPostExecute(String result) {
 
             ApplicationInfo appInfo = null;
             try {
@@ -557,16 +564,14 @@ public class MainActivity extends AppCompatActivity implements UnifyPayListener 
                 e.printStackTrace();
             }
 
-            if (dialog != null){
+            if (dialog != null) {
                 dialog.dismiss();
             }
 
-            if (result == null){
+            if (result == null) {
                 Toast.makeText(MainActivity.this, getString(R.string.get_prepayid_fail, "network connect error"), Toast.LENGTH_LONG).show();
                 mPayResult.setText(getString(R.string.mpos_callback) + "network connect error");
-            }
-            else
-            {
+            } else {
                 Log.i(TAG, "onPostExecute-->" + result);
                 try {
                     JSONObject json = new JSONObject(result);
@@ -590,10 +595,10 @@ public class MainActivity extends AppCompatActivity implements UnifyPayListener 
                             payCloudQuickPay(json.getString("appPayRequest"));
                         }
                     } else {
-                        String msg = String.format(getString(R.string.get_prepayid_fail),json.getString("errMsg"));
+                        String msg = String.format(getString(R.string.get_prepayid_fail), json.getString("errMsg"));
                         Toast.makeText(MainActivity.this, msg, Toast.LENGTH_LONG)
                                 .show();
-                        Log.e(TAG,msg);
+                        Log.e(TAG, msg);
                         mPayResult.setText(getString(R.string.mpos_callback) + msg);
                     }
 
@@ -605,8 +610,7 @@ public class MainActivity extends AppCompatActivity implements UnifyPayListener 
         }
 
         @Override
-        protected void onCancelled()
-        {
+        protected void onCancelled() {
             super.onCancelled();
         }
 
@@ -615,36 +619,36 @@ public class MainActivity extends AppCompatActivity implements UnifyPayListener 
             String url = "https://qr.chinaums.com/netpay-route-server/api/";
             if (mCurrentEnvironment == 0) {//测试一环境
                 url = "https://qr-test1.chinaums.com/netpay-route-server/api/";//"https://qr-test1.chinaums.com/netpay-portal/test/tradeTest.do";//
-            }else if(mCurrentEnvironment == 1){//测试二环境
+            } else if (mCurrentEnvironment == 1) {//测试二环境
                 url = "https://qr-test2.chinaums.com/netpay-route-server/api/";//"http://umspay.izhong.me/netpay-route-server/api/";
-            }else if(mCurrentEnvironment == 2  && typetag != 0){
+            } else if (mCurrentEnvironment == 2 && typetag != 0) {
                 url = "https://mobl-test.chinaums.com/netpay-route-server/api/";
-            }else if(mCurrentEnvironment == 3){
+            } else if (mCurrentEnvironment == 3) {
                 url = "https://qr.chinaums.com/netpay-route-server/api/";
-            }else if(typetag == 0 && mCurrentEnvironment == 2){
+            } else if (typetag == 0 && mCurrentEnvironment == 2) {
                 url = "https://qr-test1.chinaums.com/netpay-route-server/api/";
             }
 
-            if(typetag == TYPE_WEIXIN && mCurrentEnvironment == 0){
+            if (typetag == TYPE_WEIXIN && mCurrentEnvironment == 0) {
                 url = "https://qr-test3.chinaums.com/netpay-route-server/api/";//url = "https://mobl-test.chinaums.com/netpay-route-server/api/";
             }
 
-            if(typetag == TYPE_ALIPAY && mCurrentEnvironment == ENV_ALIPAY_UAT){
+            if (typetag == TYPE_ALIPAY && mCurrentEnvironment == ENV_ALIPAY_UAT) {
                 url = "https://qr-test5.chinaums.com/netpay-route-server/api/";
             }
 
             String entity = null;
             Log.d(TAG, "typetag:" + typetag);
-            if(typetag == 1){
+            if (typetag == 1) {
                 divisionInfosArray = new JSONArray();
                 entity = getWeiXinParams();
-            }else if(typetag == 2){
-                if(mCurrentEnvironment == ENV_ALIPAY_UAT){
+            } else if (typetag == 2) {
+                if (mCurrentEnvironment == ENV_ALIPAY_UAT) {
                     entity = getAliPayUatParm();
-                }else {
+                } else {
                     entity = getAliPayParm();
                 }
-            }else if(typetag == 3){
+            } else if (typetag == 3) {
                 entity = getCloudQuickPayParm();
             }
 
@@ -653,19 +657,15 @@ public class MainActivity extends AppCompatActivity implements UnifyPayListener 
 
 
             byte[] buf = httpPost(url, entity);
-            if (buf == null || buf.length == 0)
-            {
+            if (buf == null || buf.length == 0) {
                 return null;
             }
             String content = new String(buf);
             Log.d(TAG, "doInBackground, content = " + content);
 
-            try
-            {
+            try {
                 return content;
-            }
-            catch (Exception e)
-            {
+            } catch (Exception e) {
                 // TODO Auto-generated catch block
                 e.printStackTrace();
                 Log.d(TAG, "doInBackground, Exception = " + e.getMessage());
@@ -673,11 +673,13 @@ public class MainActivity extends AppCompatActivity implements UnifyPayListener 
             }
         }
     }
+
     /**
      * 微信
+     *
      * @param parms
      */
-    private void payWX(String parms){
+    private void payWX(String parms) {
         UnifyPayRequest msg = new UnifyPayRequest();
         msg.payChannel = UnifyPayRequest.CHANNEL_WEIXIN;
         msg.payData = parms;
@@ -686,9 +688,10 @@ public class MainActivity extends AppCompatActivity implements UnifyPayListener 
 
     /**
      * 支付宝
+     *
      * @param parms
      */
-    private void payAliPay(String parms){
+    private void payAliPay(String parms) {
         UnifyPayRequest msg = new UnifyPayRequest();
         msg.payChannel = UnifyPayRequest.CHANNEL_ALIPAY;
         msg.payData = parms;
@@ -697,6 +700,7 @@ public class MainActivity extends AppCompatActivity implements UnifyPayListener 
 
     /**
      * 云闪付
+     *
      * @param appPayRequest
      */
     private void payCloudQuickPay(String appPayRequest) {
@@ -707,17 +711,18 @@ public class MainActivity extends AppCompatActivity implements UnifyPayListener 
         } catch (JSONException e1) {
             e1.printStackTrace();
         }
-        UPPayAssistEx.startPay (this, null, null, tn, "00");
-        Log.d("test","云闪付支付 tn = " + tn);
+        UPPayAssistEx.startPay(this, null, null, tn, "00");
+        Log.d("test", "云闪付支付 tn = " + tn);
     }
+
     /**
      * 组装参数
      * <功能详细描述>
+     *
      * @return
      * @see [类、类#方法、类#成员]
      */
-    private String getWeiXinParams()
-    {
+    private String getWeiXinParams() {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
         Map<String, String> params = new HashMap<String, String>();
@@ -725,22 +730,22 @@ public class MainActivity extends AppCompatActivity implements UnifyPayListener 
         params.put("instMid", "APPDEFAULT");
         params.put("merOrderId", mMerOrderId.getText().toString());
         params.put("mid", mMerchantId.getText().toString());
-        params.put("msgId","dsa2231s");
+        params.put("msgId", "dsa2231s");
         params.put("msgSrc", mEditMsgSrc.getText().toString());//"WWW.SHHXQWLKJ.COM"//
         params.put("msgType", "wx.appPreOrder"); //"wx.unifiedOrder"// 机器ip地址
-        params.put("requestTimestamp",sdf.format(new Date()));
+        params.put("requestTimestamp", sdf.format(new Date()));
         params.put("tid", mTerminerId.getText().toString());
         params.put("totalAmount", mAmountText.getEditableText().toString());
         params.put("tradeType", "APP");
         params.put("subAppId", "wxc279b97cd1d9a31e");
-        params.put("secureTransaction",String.valueOf(rgSecureTransaction.getCheckedRadioButtonId() == R.id.secure_transaction_true));
+        params.put("secureTransaction", String.valueOf(rgSecureTransaction.getCheckedRadioButtonId() == R.id.secure_transaction_true));
         params.put("srcReserve", mEditSrcReserve.getText().toString());//"商户想定制化展示的内容，长度不大于255"
-        params.put("divisionFlag", cbDivision.isChecked()+"");
+        params.put("divisionFlag", cbDivision.isChecked() + "");
         //if(cbDivision.isChecked()){
-        params.put("platformAmount", cbDivision.isChecked()?mPlatformAmount.getText().toString():"");
-        params.put("subOrders", cbDivision.isChecked()?divisionInfo.getText().toString():"[]");
+        params.put("platformAmount", cbDivision.isChecked() ? mPlatformAmount.getText().toString() : "");
+        params.put("subOrders", cbDivision.isChecked() ? divisionInfo.getText().toString() : "[]");
         //}
-        String sign = signWithMd5(buildSignString(params),mMd5SecretKey,"UTF-8");//signWithMd5(buildSignString(params),"fcAmtnx7MwismjWNhNKdHC44mNXtnEQeJkRrhKJwyrW2ysRR","UTF-8");//"fZjyfDK7ix7CKhhBSC8mQWTAtmp44JsTrbkkyKXtxNAxxPFT"//
+        String sign = signWithMd5(buildSignString(params), mMd5SecretKey, "UTF-8");//signWithMd5(buildSignString(params),"fcAmtnx7MwismjWNhNKdHC44mNXtnEQeJkRrhKJwyrW2ysRR","UTF-8");//"fZjyfDK7ix7CKhhBSC8mQWTAtmp44JsTrbkkyKXtxNAxxPFT"//
         params.put("sign", sign);
 
         WXRequest req = new WXRequest();
@@ -748,7 +753,7 @@ public class MainActivity extends AppCompatActivity implements UnifyPayListener 
         req.msgSrc = params.get("msgSrc");//mEditMsgSrc.getText().toString();;
         req.requestTimestamp = params.get("requestTimestamp");
         req.merOrderId = params.get("merOrderId");
-        req.mid =  params.get("mid");//mMerchantId.getText().toString();
+        req.mid = params.get("mid");//mMerchantId.getText().toString();
         req.msgType = params.get("msgType");//"wx.unifiedOrder";
         req.msgId = "dsa2231s";
         req.totalAmount = mAmountText.getEditableText().toString();
@@ -766,12 +771,12 @@ public class MainActivity extends AppCompatActivity implements UnifyPayListener 
         return req.toString();
     }
 
-    private String getAliPayParm(){
+    private String getAliPayParm() {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         Map<String, String> params = new HashMap<String, String>();
         params.put("tid", mTerminerId.getText().toString());
         params.put("msgSrc", mEditMsgSrc.getText().toString());
-        params.put("requestTimestamp",sdf.format(new Date()));
+        params.put("requestTimestamp", sdf.format(new Date()));
         params.put("merOrderId", mMerOrderId.getText().toString());
         params.put("totalAmount", mAmountText.getEditableText().toString());
         params.put("mid", mMerchantId.getText().toString());
@@ -781,15 +786,15 @@ public class MainActivity extends AppCompatActivity implements UnifyPayListener 
         params.put("msgId", getPostOrderId());
         params.put("orderSource", "NETPAY");
         params.put("merchantUserId", mMerchantUserId.getText().toString());//"898340149000005"
-        params.put("secureTransaction",String.valueOf(rgSecureTransaction.getCheckedRadioButtonId() == R.id.secure_transaction_true));
+        params.put("secureTransaction", String.valueOf(rgSecureTransaction.getCheckedRadioButtonId() == R.id.secure_transaction_true));
         params.put("srcReserve", mEditSrcReserve.getText().toString());//"商户想定制化展示的内容，长度不大于255"
-        String sign = signWithMd5(buildSignString(params),mMd5SecretKey,"UTF-8");//signWithMd5(buildSignString(params),"fcAmtnx7MwismjWNhNKdHC44mNXtnEQeJkRrhKJwyrW2ysRR","UTF-8");//
+        String sign = signWithMd5(buildSignString(params), mMd5SecretKey, "UTF-8");//signWithMd5(buildSignString(params),"fcAmtnx7MwismjWNhNKdHC44mNXtnEQeJkRrhKJwyrW2ysRR","UTF-8");//
         params.put("sign", sign);
         PostonRequest req = new PostonRequest();
         req.tid = params.get("tid");
         req.msgSrc = params.get("msgSrc");
         req.requestTimestamp = params.get("requestTimestamp");
-        req.merOrderId =  params.get("merOrderId");
+        req.merOrderId = params.get("merOrderId");
         req.totalAmount = params.get("totalAmount");
         req.mid = params.get("mid");
         req.msgType = params.get("msgType");
@@ -806,14 +811,15 @@ public class MainActivity extends AppCompatActivity implements UnifyPayListener 
 
     /**
      * UAT环境（暂只用于支付宝支付方式）2018-07-11
+     *
      * @return
      */
-    private String getAliPayUatParm(){
+    private String getAliPayUatParm() {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         Map<String, String> params = new HashMap<String, String>();
         params.put("tid", mTerminerId.getText().toString());
         params.put("msgSrc", mEditMsgSrc.getText().toString());
-        params.put("requestTimestamp",sdf.format(new Date()));
+        params.put("requestTimestamp", sdf.format(new Date()));
         params.put("merOrderId", mMerOrderId.getText().toString());
         params.put("totalAmount", mAmountText.getEditableText().toString());
         params.put("mid", mMerchantId.getText().toString());
@@ -823,15 +829,15 @@ public class MainActivity extends AppCompatActivity implements UnifyPayListener 
         params.put("msgId", getPostOrderId());
         params.put("orderSource", "NETPAY");
         params.put("merchantUserId", mMerchantUserId.getText().toString());//"898340149000005"
-        params.put("secureTransaction",String.valueOf(rgSecureTransaction.getCheckedRadioButtonId() == R.id.secure_transaction_true));
+        params.put("secureTransaction", String.valueOf(rgSecureTransaction.getCheckedRadioButtonId() == R.id.secure_transaction_true));
         params.put("srcReserve", mEditSrcReserve.getText().toString());//"商户想定制化展示的内容，长度不大于255"
-        String sign = signWithMd5(buildSignString(params),mMd5SecretKey,"UTF-8");//signWithMd5(buildSignString(params),"fcAmtnx7MwismjWNhNKdHC44mNXtnEQeJkRrhKJwyrW2ysRR","UTF-8");//
+        String sign = signWithMd5(buildSignString(params), mMd5SecretKey, "UTF-8");//signWithMd5(buildSignString(params),"fcAmtnx7MwismjWNhNKdHC44mNXtnEQeJkRrhKJwyrW2ysRR","UTF-8");//
         params.put("sign", sign);
         PostonRequest req = new PostonRequest();
         req.tid = params.get("tid");
         req.msgSrc = params.get("msgSrc");
         req.requestTimestamp = params.get("requestTimestamp");
-        req.merOrderId =  params.get("merOrderId");
+        req.merOrderId = params.get("merOrderId");
         req.totalAmount = params.get("totalAmount");
         req.mid = params.get("mid");
         req.msgType = params.get("msgType");
@@ -848,9 +854,10 @@ public class MainActivity extends AppCompatActivity implements UnifyPayListener 
 
     /**
      * 云闪付
+     *
      * @return
      */
-    private String getCloudQuickPayParm(){
+    private String getCloudQuickPayParm() {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
         Map<String, String> params = new HashMap<String, String>();
@@ -858,22 +865,22 @@ public class MainActivity extends AppCompatActivity implements UnifyPayListener 
         params.put("instMid", "APPDEFAULT");
         params.put("merOrderId", mMerOrderId.getText().toString());
         params.put("mid", mMerchantId.getText().toString());////"898310148160568"
-        params.put("msgId","dsa2231s");
+        params.put("msgId", "dsa2231s");
         params.put("msgSrc", mEditMsgSrc.getText().toString());//"NETPAY"
         params.put("msgType", "uac.appOrder");//"wx.unifiedOrder"// 机器ip地址
-        params.put("requestTimestamp",sdf.format(new Date()));
+        params.put("requestTimestamp", sdf.format(new Date()));
         params.put("tid", mTerminerId.getText().toString());
         params.put("totalAmount", mAmountText.getEditableText().toString());
         params.put("tradeType", "APP");
         params.put("subAppId", "wxc71b9ae0235a4c30");
-        params.put("secureTransaction",String.valueOf(rgSecureTransaction.getCheckedRadioButtonId() == R.id.secure_transaction_true));
+        params.put("secureTransaction", String.valueOf(rgSecureTransaction.getCheckedRadioButtonId() == R.id.secure_transaction_true));
         params.put("srcReserve", mEditSrcReserve.getText().toString());
-        params.put("divisionFlag", cbDivision.isChecked()+"");
+        params.put("divisionFlag", cbDivision.isChecked() + "");
         //if(cbDivision.isChecked()){
-        params.put("platformAmount", cbDivision.isChecked()?mPlatformAmount.getText().toString():"");
-        params.put("subOrders", cbDivision.isChecked()?divisionInfo.getText().toString():"[]");
+        params.put("platformAmount", cbDivision.isChecked() ? mPlatformAmount.getText().toString() : "");
+        params.put("subOrders", cbDivision.isChecked() ? divisionInfo.getText().toString() : "[]");
         //}
-        String sign = signWithMd5(buildSignString(params),mMd5SecretKey,"UTF-8");//signWithMd5(buildSignString(params),"1234567890lkkjjhhguuijmjfidfi4urjrjmu4i84jvm","UTF-8");//
+        String sign = signWithMd5(buildSignString(params), mMd5SecretKey, "UTF-8");//signWithMd5(buildSignString(params),"1234567890lkkjjhhguuijmjfidfi4urjrjmu4i84jvm","UTF-8");//
         params.put("sign", sign);
 
         WXRequest req = new WXRequest();
@@ -881,7 +888,7 @@ public class MainActivity extends AppCompatActivity implements UnifyPayListener 
         req.msgSrc = mEditMsgSrc.getText().toString();// "NETPAY";
         req.requestTimestamp = params.get("requestTimestamp");
         req.merOrderId = params.get("merOrderId");
-        req.mid =  params.get("mid");//mMerchantId.getText().toString();
+        req.mid = params.get("mid");//mMerchantId.getText().toString();
         req.msgType = params.get("msgType");//"wx.unifiedOrder";
         req.msgId = params.get("msgId");//"dsa2231s";
         req.totalAmount = mAmountText.getEditableText().toString();
@@ -898,6 +905,7 @@ public class MainActivity extends AppCompatActivity implements UnifyPayListener 
         // }
         return req.toString();
     }
+
     static public String signWithMd5(String originStr, String md5Key, String charset) {
         String text = originStr + md5Key;
         Log.d("zhangxiulu", "signStr:" + text);
@@ -992,9 +1000,8 @@ public class MainActivity extends AppCompatActivity implements UnifyPayListener 
     }
 
 
-
     private void toast(String click) {
-        Toast.makeText(this,click,Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, click, Toast.LENGTH_SHORT).show();
     }
 
 }
