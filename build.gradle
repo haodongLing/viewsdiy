@@ -1,13 +1,12 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 
 buildscript {
-    
+
     repositories {
         google()
         jcenter()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.1.2'
 //        classpath 'com.google.gms:google-services:3.1.0'
 //        classpath 'com.novoda:bintray-release:0.8.1'
 
@@ -15,8 +14,10 @@ buildscript {
         // in the individual module build.gradle files
         classpath 'com.jakewharton:butterknife-gradle-plugin:9.0.0'
         // Tinker
-        classpath ('com.tencent.tinker:tinker-patch-gradle-plugin:1.9.9')
+        classpath('com.tencent.tinker:tinker-patch-gradle-plugin:1.9.9')
         classpath "com.alibaba:arouter-register:1.0.2"
+        classpath 'com.android.tools.build:gradle:3.5.3'
+        classpath 'org.greenrobot:greendao-gradle-plugin:3.3.0' // add plugin
     }
 }
 
@@ -24,6 +25,7 @@ allprojects {
     repositories {
         google()
         jcenter()
+        mavenCentral() // add repository
         maven { url "https://jitpack.io" }
 
     }
@@ -32,7 +34,7 @@ allprojects {
 task clean(type: Delete) {
     delete rootProject.buildDir
 }
-ext{
+ext {
     butterknifeVersion = '9.0.0'
     okhttp3 = '3.10.0'
 }

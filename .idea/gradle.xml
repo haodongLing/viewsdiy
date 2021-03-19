@@ -19,12 +19,10 @@
             <option value="$PROJECT_DIR$/matisse" />
             <option value="$PROJECT_DIR$/multiblutooth" />
             <option value="$PROJECT_DIR$/pracarouter" />
-            <option value="$PROJECT_DIR$/pracdagger" />
             <option value="$PROJECT_DIR$/pracmodule" />
             <option value="$PROJECT_DIR$/pracretrofit" />
             <option value="$PROJECT_DIR$/remoteapp" />
             <option value="$PROJECT_DIR$/structure2" />
-            <option value="$PROJECT_DIR$/unifypayexample" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

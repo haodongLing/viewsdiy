@@ -11,8 +11,8 @@ include  ':designmode',
         ':structure2' ,
         ':pracmodule',
         ':customui',
-        'chapter1',
+        'chapter1'
 //        ':structure',
 //        ':mystruture',
-        ':pracdagger',
-':unifypayexample'
+//        ':pracdagger',
+//':unifypayexample'

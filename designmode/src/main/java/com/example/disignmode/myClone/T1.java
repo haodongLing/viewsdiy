@@ -1,5 +1,6 @@
 package com.example.disignmode.myClone;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,7 +10,7 @@ import java.util.List;
  * <p>
  * version:
  */
-public class T1 implements Cloneable { // 1. 继承接口
+public class T1 implements Serializable,Cloneable { // 1. 继承接口
     private String mText;
     private List<String> mImages = new ArrayList<>();
 

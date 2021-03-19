@@ -1,7 +1,5 @@
 package com.haodong.structure2.structure.myarray;
 
-import com.haodong.structure2.structure.MyUtil;
-
 /**
  * created by linghaoDo on 2019-09-29
  * <p>
@@ -28,8 +26,23 @@ public class MinimumSizeArray {
             return res;
 
     }
-    public static void main(String[] args){
-        final int[] arrs={2,1,4,5,3,7,2,4};
-        System.out.println("answer-->"+minSubArrayLen(13,arrs));
+
+    public static void main(String[] args) {
+        final int[] arrs = {2, 1, 4, 5, 3, 7, 2, 4};
+        System.out.println("answer-->" + minSubArrayLen(13, arrs));
+    }
+
+    public int[] twoSum(int[] nums, int target) {
+        int l = 0, r = nums.length - 1;
+        while (l < r) {
+            if (nums[l] + nums[r] > target) {
+                r--;
+            } else if (nums[l] + nums[r] < target) {
+                l++;
+            } else if (nums[l] + nums[r] == target) {
+                return new int[]{l, r};
+            }
+        }
+        throw new IllegalArgumentException("fail");
     }
 }

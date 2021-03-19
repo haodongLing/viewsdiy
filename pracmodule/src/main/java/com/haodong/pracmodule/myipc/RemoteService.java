@@ -20,7 +20,7 @@ import android.widget.Toast;
 /**
  * @author chaochaowu
  */
-public class RemoteService extends Service {
+public class  RemoteService extends Service {
 
     private MyBinder mBinder;
 

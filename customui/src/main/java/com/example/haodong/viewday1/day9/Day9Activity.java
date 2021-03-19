@@ -8,6 +8,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.haodong.common.util.LogUtil;
 import com.example.haodong.viewday1.MainActivity;
 import com.example.haodong.viewday1.R;
 
@@ -23,6 +24,13 @@ public class Day9Activity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Log.e("TAG", "onClick: ");
+            }
+        });
+        mTouchView.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                LogUtil.i("TAG", "onTouch");
+                return false;
             }
         });
 

@@ -1,5 +1,5 @@
 apply plugin: 'com.android.application'
-
+apply plugin: 'org.greenrobot.greendao' // apply plugin
 android {
     compileSdkVersion 28
 
@@ -46,6 +46,14 @@ android {
     }
 
 }
+greendao {
+    schemaVersion 1 //数据库版本号
+    daoPackage 'com.haodong.pracmodule.db'
+// 设置DaoMaster、DaoSession、Dao 包名
+    targetGenDir 'src/main/java'//设置DaoMaster、DaoSession、Dao目录,请注意，这里路径用/不要用.
+    generateTests false //设置为true以自动生成单元测试。
+    targetGenDirTests 'src/main/java' //应存储生成的单元测试的基本目录。默认为 src / androidTest / java。
+}
 def daggerVer = 2.15
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
@@ -68,4 +76,5 @@ dependencies {
     annotationProcessor 'com.google.dagger:dagger-compiler:2.15'
     api "com.google.dagger:dagger-android-support:$daggerVer"
     annotationProcessor "com.google.dagger:dagger-android-processor:$daggerVer"
+    implementation 'org.greenrobot:greendao:3.3.0' // add library
 }
