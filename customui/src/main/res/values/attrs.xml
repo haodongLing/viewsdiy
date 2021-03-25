@@ -31,4 +31,13 @@
     <declare-styleable name="MySlidingMenu">
         <attr name="menuRightMargin" format="dimension" />
     </declare-styleable>
+    <declare-styleable name="GetCoinProgressView">
+        <attr name="textColor" format="color"/>
+        <attr name="textSize" format="dimension"/>
+        <attr name="isNeedAnim" format="boolean"/>
+        <attr name="bgColor" format="color"/>
+        <attr name="progressColor" format="color"/>
+        <attr name="topGradColor" format="color"/>
+        <attr name="bottomGradColor" format="color"/>
+    </declare-styleable>
 </resources>
