@@ -1,6 +1,5 @@
 package com.example.haodong.viewday1.demo;
 
-import android.animation.ObjectAnimator;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
