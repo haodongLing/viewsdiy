@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.haodong.viewday1">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -21,12 +24,8 @@
         <activity android:name=".day7.QuadViewActivity" />
         <activity android:name=".day8.Day8Activity" />
         <activity android:name=".day10.Day10Activity" />
-        <activity android:name=".day9.Day9Activity" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+        <activity android:name=".day9.Day9Activity">
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity android:name=".day12.Day12Activity" />
         <activity android:name=".day14.Day14Activity" />
@@ -34,6 +33,16 @@
         <activity android:name=".iphone.IponeActivity" />
         <activity android:name=".day24.BeciaActivity" />
         <activity android:name=".mynested.InventoryStatusActivity"></activity>
+        <activity android:name=".demo.TransFormActivity">
+
+        </activity>
+        <activity android:name=".demo.Transform2Activity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>
