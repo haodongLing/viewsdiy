@@ -3,11 +3,9 @@ package com.example.disignmode.handlertest;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Handler;
-import android.os.HandlerThread;
-import android.os.Looper;
-import android.os.Message;
-import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
+
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.View;
@@ -17,8 +15,6 @@ import android.widget.TextView;
 
 import com.example.disignmode.R;
 import com.example.haodong.common.util.LogUtil;
-
-import java.lang.ref.WeakReference;
 
 public class Handler1Activity extends AppCompatActivity {
     //    MyHandler<Handler1Activity> myHandler = new MyHandler<>(Looper.getMainLooper());

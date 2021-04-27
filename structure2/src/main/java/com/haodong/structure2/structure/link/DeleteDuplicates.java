@@ -1,6 +1,6 @@
 package com.haodong.structure2.structure.link;
 
-import android.support.v7.widget.ViewUtils;
+import androidx.appcompat.widget.ViewUtils;
 
 /**
  * created by linghaoDo on 2019-12-10

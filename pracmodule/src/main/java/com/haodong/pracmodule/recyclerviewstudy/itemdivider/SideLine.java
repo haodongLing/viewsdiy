@@ -1,6 +1,6 @@
 package com.haodong.pracmodule.recyclerviewstudy.itemdivider;
 
-import android.support.annotation.ColorInt;
+import androidx.annotation.ColorInt;
 
 /**
  * created by linghaoDo on 2019/8/6

@@ -2,7 +2,7 @@ package haodong.com.views_diy.paint_prac;
 
 import android.os.Handler;
 import android.os.Looper;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 
 import haodong.com.views_diy.R;

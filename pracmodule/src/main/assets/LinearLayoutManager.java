@@ -17,20 +17,21 @@
 
 package com.study.xuan.recyclerviewcode;
 
-import static android.support.annotation.RestrictTo.Scope.LIBRARY_GROUP;
-import static android.support.v7.widget.RecyclerView.NO_POSITION;
-import static android.support.v7.widget.RecyclerView.VERBOSE_TRACING;
+import static androidx.annotation.RestrictTo.Scope.LIBRARY_GROUP;
+import static androidx.recyclerview.widget.RecyclerView.NO_POSITION;
+import static androidx.recyclerview.widget.RecyclerView.VERBOSE_TRACING;
 import static com.study.xuan.recyclerviewcode.RecyclerView.NO_POSITION;
 
 import android.content.Context;
 import android.graphics.PointF;
 import android.os.Parcel;
 import android.os.Parcelable;
-import android.support.annotation.RestrictTo;
-import android.support.v4.os.TraceCompat;
-import android.support.v4.view.ViewCompat;
-import android.support.v7.widget.RecyclerView.LayoutParams;
-import android.support.v7.widget.helper.ItemTouchHelper;
+import androidx.annotation.RestrictTo;
+import androidx.core.os.TraceCompat;
+import androidx.core.view.ViewCompat;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.recyclerview.widget.RecyclerView.LayoutParams;
+import androidx.recyclerview.widget.ItemTouchHelper;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.View;
@@ -44,7 +45,7 @@ import java.util.List;
 
 
 /**
- * A {@link android.support.v7.widget.RecyclerView.LayoutManager} implementation which provides
+ * A {@link RecyclerView.LayoutManager} implementation which provides
  * similar functionality to {@link android.widget.ListView}.
  */
 
@@ -382,7 +383,7 @@ public class LinearLayoutManager extends RecyclerView.LayoutManager implements
 
 /**/
 /**
-     * Sets the orientation of the layout. {@link android.support.v7.widget.LinearLayoutManager}
+     * Sets the orientation of the layout. {@link androidx.recyclerview.widget.LinearLayoutManager}
      * will do its best to keep scroll position.
      *
      * @param orientation {@link #HORIZONTAL} or {@link #VERTICAL}
@@ -437,8 +438,8 @@ public class LinearLayoutManager extends RecyclerView.LayoutManager implements
      * laid out at the end of the UI, second item is laid out before it etc.
      * <p>
      * For horizontal layouts, it depends on the layout direction.
-     * When set to true, If {@link android.support.v7.widget.RecyclerView} is LTR, than it will
-     * layout from RTL, if {@link android.support.v7.widget.RecyclerView}} is RTL, it will layout
+     * When set to true, If {@link RecyclerView} is LTR, than it will
+     * layout from RTL, if {@link RecyclerView}} is RTL, it will layout
      * from LTR.
      * <p>
      * If you are looking for the exact same behavior of
@@ -488,7 +489,7 @@ public class LinearLayoutManager extends RecyclerView.LayoutManager implements
 /**
      * <p>Returns the amount of extra space that should be laid out by LayoutManager.</p>
      * <p>
-     * <p>By default, {@link android.support.v7.widget.LinearLayoutManager} lays out 1 extra page
+     * <p>By default, {@link androidx.recyclerview.widget.LinearLayoutManager} lays out 1 extra page
      * of items while smooth scrolling and 0 otherwise. You can override this method to implement
      * your custom layout pre-cache logic.</p>
      * <p>
@@ -1509,7 +1510,7 @@ public class LinearLayoutManager extends RecyclerView.LayoutManager implements
      * <p>
      * Checks both layout position and visible position to guarantee that the view is not visible.
      *
-     * @param recycler Recycler instance of {@link android.support.v7.widget.RecyclerView}
+     * @param recycler Recycler instance of {@link RecyclerView}
      * @param dt       This can be used to add additional padding to the visible area. This is used
      *                 to detect children that will go out of bounds after scrolling, without
      *                 actually moving them.
@@ -1556,7 +1557,7 @@ public class LinearLayoutManager extends RecyclerView.LayoutManager implements
      * <p>
      * Checks both layout position and visible position to guarantee that the view is not visible.
      *
-     * @param recycler Recycler instance of {@link android.support.v7.widget.RecyclerView}
+     * @param recycler Recycler instance of {@link RecyclerView}
      * @param dt       This can be used to add additional padding to the visible area. This is used
      *                 to detect children that will go out of bounds after scrolling, without
      *                 actually moving them.
@@ -1603,9 +1604,9 @@ public class LinearLayoutManager extends RecyclerView.LayoutManager implements
      * @param layoutState Current layout state. Right now, this object does not change but
      *                    we may consider moving it out of this view so passing around as a
      *                    parameter for now, rather than accessing {@link #mLayoutState}
-     * @see #recycleViewsFromStart(android.support.v7.widget.RecyclerView.Recycler, int)
-     * @see #recycleViewsFromEnd(android.support.v7.widget.RecyclerView.Recycler, int)
-     * @see android.support.v7.widget.LinearLayoutManager.LayoutState#mLayoutDirection
+     * @see #recycleViewsFromStart(RecyclerView.Recycler, int)
+     * @see #recycleViewsFromEnd(RecyclerView.Recycler, int)
+     * @see androidx.recyclerview.widget.LinearLayoutManager.LayoutState#mLayoutDirection
  /**/
 
     private void recycleByLayoutState(RecyclerView.Recycler recycler, LayoutState layoutState) {
@@ -1622,7 +1623,7 @@ public class LinearLayoutManager extends RecyclerView.LayoutManager implements
 /**/
 /**
      * The magic functions :). Fills the given layout, defined by the layoutState. This is fairly
-     * independent from the rest of the {@link android.support.v7.widget.LinearLayoutManager}
+     * independent from the rest of the {@link androidx.recyclerview.widget.LinearLayoutManager}
      * and with little change, can be made publicly available as a helper class.
      *
      * @param recycler        Current recycler that is attached to RecyclerView

@@ -1,7 +1,7 @@
 package com.example.matisse.internal.entity;
 
 import android.content.pm.ActivityInfo;
-import android.support.annotation.StyleRes;
+import androidx.annotation.StyleRes;
 
 
 import com.example.matisse.MimeType;

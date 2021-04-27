@@ -1,12 +1,11 @@
 package com.haodong.structure2.structure.map;
 
 import android.os.Build;
-import android.support.annotation.RequiresApi;
+import androidx.annotation.RequiresApi;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.TreeMap;
-import java.util.TreeSet;
 
 /**
  * created by linghaoDo on 2019-10-08

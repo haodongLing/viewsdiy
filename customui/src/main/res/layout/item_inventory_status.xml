@@ -6,7 +6,7 @@
     android:orientation="horizontal">
     <!--名称单独写-->
 
-    <android.support.v7.widget.AppCompatTextView
+    <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/item_inventory_name"
         android:layout_width="72dp"
         android:layout_height="45dp"

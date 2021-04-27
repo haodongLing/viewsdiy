@@ -1,8 +1,7 @@
 package com.haodong.pracmodule.myhook;
 
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 
 import com.example.haodong.common.util.LogUtil;
 import com.haodong.pracmodule.R;

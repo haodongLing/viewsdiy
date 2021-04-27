@@ -1,7 +1,7 @@
 package com.example.haodong.viewday1.demo;
 
 import android.annotation.SuppressLint;
-import android.support.v4.view.ViewPager;
+import androidx.viewpager.widget.ViewPager;
 import android.view.View;
 
 import com.example.haodong.common.util.LogUtil;

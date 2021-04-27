@@ -2,11 +2,10 @@ package com.example.haodong.viewday1.day8;
 
 import android.animation.ValueAnimator;
 import android.content.Context;
-import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.MotionEvent;
@@ -20,7 +19,7 @@ import com.example.haodong.viewday1.SizeUtils;
  * created at 2019/2/18
  * Author linghailong
  */
-public class CircleView extends android.support.v7.widget.AppCompatImageView {
+public class CircleView extends androidx.appcompat.widget.AppCompatImageView {
     /*最大圆的半径*/
     private float mMaxRadius = SizeUtils.dip2px(getContext(), 90);
     /*最小圆的半径*/

@@ -1,8 +1,6 @@
 package com.example.disignmode.myaop;
 
-import android.content.res.AssetManager;
-import android.content.res.Resources;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.example.disignmode.R;

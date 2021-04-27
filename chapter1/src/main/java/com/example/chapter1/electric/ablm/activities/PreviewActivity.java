@@ -1,15 +1,14 @@
 package com.example.chapter1.electric.ablm.activities;
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 import android.widget.FrameLayout;
 
 import com.example.chapter1.R;
 import com.example.chapter1.electric.ablm.SlideImage;
 import com.example.chapter1.electric.ablm.preview.PreviewAdapter;
 import com.example.chapter1.electric.ablm.preview.PreviewSwitcher;
-import com.example.chapter1.electric.ablm.tools.UiTool;
 
 import java.util.ArrayList;
 

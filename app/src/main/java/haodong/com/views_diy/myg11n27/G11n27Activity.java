@@ -1,6 +1,6 @@
 package haodong.com.views_diy.myg11n27;
 
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 
 import haodong.com.views_diy.R;

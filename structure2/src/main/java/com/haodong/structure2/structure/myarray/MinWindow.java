@@ -1,7 +1,7 @@
 package com.haodong.structure2.structure.myarray;
 
 import android.os.Build;
-import android.support.annotation.RequiresApi;
+import androidx.annotation.RequiresApi;
 
 import java.util.HashMap;
 import java.util.Map;

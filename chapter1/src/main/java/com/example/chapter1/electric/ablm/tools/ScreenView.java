@@ -2,14 +2,13 @@ package com.example.chapter1.electric.ablm.tools;
 
 import android.content.Context;
 import android.util.AttributeSet;
-import android.widget.ImageView;
 
 /**
  * description:
  * author: linghailong
  * date: 2019/3/26
  */
-public class ScreenView extends android.support.v7.widget.AppCompatImageView {
+public class ScreenView extends androidx.appcompat.widget.AppCompatImageView {
     private int height;
     public ScreenView(Context context) {
         this(context,null);

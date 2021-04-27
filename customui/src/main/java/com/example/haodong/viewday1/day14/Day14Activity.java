@@ -1,15 +1,13 @@
 package com.example.haodong.viewday1.day14;
 
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.ListView;
 import android.widget.TextView;
 
-import com.example.haodong.viewday1.MainActivity;
 import com.example.haodong.viewday1.R;
 
 import java.util.ArrayList;

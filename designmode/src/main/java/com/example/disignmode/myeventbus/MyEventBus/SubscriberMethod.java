@@ -1,7 +1,6 @@
 package com.example.disignmode.myeventbus.MyEventBus;
 
-import android.icu.text.PluralRules;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 
 import org.greenrobot.eventbus.ThreadMode;
 

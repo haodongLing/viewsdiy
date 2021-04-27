@@ -3,12 +3,12 @@ package com.haodong.pracmodule.recyclerviewstudy;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.Rect;
-import android.support.annotation.NonNull;
-import android.support.v7.app.AppCompatActivity;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.util.SparseArray;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import android.view.View;
 
 import com.example.haodong.common.util.UIUtil;
@@ -16,7 +16,6 @@ import com.haodong.pracmodule.R;
 import com.haodong.pracmodule.recyclerviewstudy.adapters.Recycler2Adapter;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class Recycler2Activity extends AppCompatActivity {
     private Recycler2Adapter mAdapter;

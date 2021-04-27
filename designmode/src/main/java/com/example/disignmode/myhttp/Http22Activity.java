@@ -3,27 +3,15 @@ package com.example.disignmode.myhttp;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Build;
-import android.support.v4.content.FileProvider;
-import android.support.v7.app.AppCompatActivity;
+import androidx.core.content.FileProvider;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.example.disignmode.BuildConfig;
 import com.example.disignmode.R;
 
-import java.io.BufferedOutputStream;
 import java.io.File;
-import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.net.Socket;
-
-import okhttp3.Response;
-import okhttp3.Call;
-import okhttp3.Callback;
-import okio.BufferedSink;
-import okio.BufferedSource;
-import okio.Okio;
 
 public class Http22Activity extends AppCompatActivity {
 

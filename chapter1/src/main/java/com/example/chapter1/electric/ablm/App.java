@@ -1,10 +1,9 @@
 package com.example.chapter1.electric.ablm;
 
-import android.Manifest;
 import android.app.Application;
-import android.content.pm.PackageManager;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
+
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
 /**
  * description:

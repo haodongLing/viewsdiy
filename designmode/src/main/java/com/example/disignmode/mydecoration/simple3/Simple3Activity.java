@@ -1,8 +1,8 @@
 package com.example.disignmode.mydecoration.simple3;
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.disignmode.R;
 import com.example.disignmode.mydecoration.simple1.TeacherEat;

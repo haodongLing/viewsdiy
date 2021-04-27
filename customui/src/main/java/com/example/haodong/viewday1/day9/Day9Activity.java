@@ -1,15 +1,12 @@
 package com.example.haodong.viewday1.day9;
 
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
-import android.view.ViewGroup;
 
 import com.example.haodong.common.util.LogUtil;
-import com.example.haodong.viewday1.MainActivity;
 import com.example.haodong.viewday1.R;
 
 public class Day9Activity extends AppCompatActivity {

@@ -1,6 +1,6 @@
 package com.haodong.prac.dagger;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 import javax.inject.Inject;
 

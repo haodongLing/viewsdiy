@@ -3,7 +3,7 @@ package com.haodong.study.remoteapp;
 import android.app.Service;
 import android.content.Intent;
 import android.os.IBinder;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 
 /**
  * created by linghaoDo on 2021/1/13

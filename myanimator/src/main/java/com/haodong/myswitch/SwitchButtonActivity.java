@@ -1,6 +1,6 @@
 package com.haodong.myswitch;
 
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.haodong.myanimator.R;

@@ -1,6 +1,6 @@
 package com.example.haodong.viewday1.day9;
 
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.example.haodong.viewday1.R;

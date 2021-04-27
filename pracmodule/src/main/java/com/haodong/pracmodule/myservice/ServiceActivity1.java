@@ -1,7 +1,7 @@
 package com.haodong.pracmodule.myservice;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.example.haodong.common.util.LogUtil;
