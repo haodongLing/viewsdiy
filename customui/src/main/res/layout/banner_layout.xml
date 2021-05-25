@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <com.example.haodong.viewday1.myviewpager.BannerViewPager
+    <com.example.haodong.customui.myviewpager.BannerViewPager
         android:id="@+id/banner_view_pager"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />

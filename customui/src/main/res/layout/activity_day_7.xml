@@ -14,7 +14,7 @@
         android:textColor="#FF0000"
         android:layout_height="wrap_content" />
 
-    <com.example.haodong.viewday1.day7.LetterSideBar
+    <com.example.haodong.customui.day7.LetterSideBar
         android:id="@+id/letter_side_bar"
         android:layout_width="wrap_content"
         android:layout_alignParentRight="true"

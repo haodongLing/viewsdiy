@@ -17,13 +17,13 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <com.example.haodong.viewday1.MyTextView
+    <com.example.haodong.customui.MyTextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:paddingStart="10dp"
         app:myText="美滋滋美滋滋" />
 
-    <com.example.haodong.viewday1.day4.ColorTrackTextView
+    <com.example.haodong.customui.day4.ColorTrackTextView
         android:id="@+id/color_track_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -38,7 +38,7 @@
         android:layout_height="50dp"
         android:text="start change"
         android:textAllCaps="false" />
-    <com.example.haodong.viewday1.day4.MyCircleScheduleView
+    <com.example.haodong.customui.day4.MyCircleScheduleView
         android:id="@+id/myCircleView"
         android:layout_width="100dp"
         android:layout_height="150dp"

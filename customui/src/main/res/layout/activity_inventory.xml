@@ -14,7 +14,7 @@
         <include layout="@layout/item_inventory_status" />
     </com.google.android.material.appbar.AppBarLayout>
 
-    <com.example.haodong.viewday1.mynested.NestedScrollParentView
+    <com.example.haodong.customui.mynested.NestedScrollParentView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -29,5 +29,5 @@
                 android:minHeight="220dp" />
         </com.scwang.smartrefresh.layout.SmartRefreshLayout>
 
-    </com.example.haodong.viewday1.mynested.NestedScrollParentView>
+    </com.example.haodong.customui.mynested.NestedScrollParentView>
 </LinearLayout>

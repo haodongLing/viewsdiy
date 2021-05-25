@@ -40,4 +40,12 @@
         <attr name="topGradColor" format="color"/>
         <attr name="bottomGradColor" format="color"/>
     </declare-styleable>
+    <declare-styleable name="ShapeImageView">
+        <attr name="siv_border_width" format="dimension"/>
+        <attr name="siv_border_color" format="color"/>
+        <attr name="siv_fill_color" format="color"/>
+        <attr name="siv_border_overlay" format="boolean"/>
+        <attr name="siv_shape_type" format="integer"/>
+        <attr name="siv_round_radius" format="dimension"/>
+    </declare-styleable>
 </resources>

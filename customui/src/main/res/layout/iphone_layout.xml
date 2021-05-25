@@ -47,7 +47,7 @@
         android:layout_marginRight="30dp"
         android:layout_marginBottom="30dp"
         android:src="@drawable/ic_deline" />
-    <com.example.haodong.viewday1.iphone.HorizontalSlipView
+    <com.example.haodong.customui.iphone.HorizontalSlipView
         android:id="@+id/preview_layout_slide"
         android:layout_width="270dp"
         android:layout_height="60dp"
@@ -61,7 +61,7 @@
             android:layout_height="50dp"
             android:layout_centerVertical="true"
             android:src="@drawable/ic_slide"/>
-        <com.example.haodong.viewday1.iphone.FlickerTextView
+        <com.example.haodong.customui.iphone.FlickerTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
@@ -75,5 +75,5 @@
             android:textColor="#ffffff"
             android:textSize="20sp"/>
 
-    </com.example.haodong.viewday1.iphone.HorizontalSlipView>
+    </com.example.haodong.customui.iphone.HorizontalSlipView>
 </RelativeLayout>

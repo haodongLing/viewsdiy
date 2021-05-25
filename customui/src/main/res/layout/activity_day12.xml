@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.example.haodong.viewday1.day12.MySlidingMenu xmlns:android="http://schemas.android.com/apk/res/android"
+<com.example.haodong.customui.day12.MySlidingMenu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -14,4 +14,4 @@
         <include layout="@layout/layout_home_menu"/>
         <include layout="@layout/layout_home_content"/>
     </LinearLayout>
-</com.example.haodong.viewday1.day12.MySlidingMenu>
+</com.example.haodong.customui.day12.MySlidingMenu>

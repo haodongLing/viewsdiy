@@ -7,7 +7,7 @@
     android:orientation="vertical"
     tools:context=".viewday2.StepViewActivity">
 
-    <com.example.haodong.viewday1.viewday2.QQStepView
+    <com.example.haodong.customui.viewday2.QQStepView
         android:id="@+id/step_view"
         android:layout_width="300dp"
         android:layout_height="300dp"
