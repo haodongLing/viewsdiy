@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".XformadeActivity">
+
+    <!--    <com.example.haodong.customui.XformodeView-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content" />-->
+    <!--    <com.example.haodong.customui.CustomRoundLayout-->
+    <!--        android:layout_width="300dp"-->
+    <!--        android:layout_height="300dp"-->
+    <!--        android:orientation="vertical">-->
+    <!--        <ImageView-->
+    <!--            android:layout_width="300dp"-->
+    <!--            android:layout_height="200dp"-->
+    <!--            android:src="@drawable/ios_copy"-->
+    <!--            android:scaleType="centerCrop"/>-->
+
+    <!--        <View-->
+    <!--            android:layout_width="wrap_content"-->
+    <!--            android:layout_height="wrap_content"-->
+    <!--            android:background="@color/blue"/>-->
+
+    <!--    </com.example.haodong.customui.CustomRoundLayout>-->
+    <!--    <com.example.haodong.customui.MultiTouchView-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="match_parent" />-->
+    <ImageView
+        android:id="@+id/image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/anim_indicator" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="10dp"
+        android:id="@+id/btn"/>
+
+
+</LinearLayout>

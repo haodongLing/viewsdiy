@@ -17,7 +17,7 @@ import android.view.View;
  * created at 2019/1/22
  * @duscribe:
  */
-public class MyTextView extends View {
+public class MyTextView extends View  {
     private String mText;
     private int mTextSize = 15;
     private int mTextColor = Color.BLACK;
