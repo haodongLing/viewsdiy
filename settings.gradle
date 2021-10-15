@@ -16,3 +16,5 @@ include  ':designmode',
 //        ':mystruture',
 //        ':pracdagger',
 //':unifypayexample'
+include ':mylibrary'
+include ':feature-hook'

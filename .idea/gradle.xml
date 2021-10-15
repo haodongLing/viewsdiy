@@ -5,7 +5,7 @@
     <option name="linkedExternalProjectsSettings">
       <GradleProjectSettings>
         <option name="delegatedBuild" value="false" />
-        <option name="testRunner" value="PLATFORM" />
+        <option name="testRunner" value="GRADLE" />
         <option name="distributionType" value="DEFAULT_WRAPPED" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="modules">
@@ -16,8 +16,10 @@
             <option value="$PROJECT_DIR$/customui" />
             <option value="$PROJECT_DIR$/designmode" />
             <option value="$PROJECT_DIR$/facade" />
+            <option value="$PROJECT_DIR$/feature-hook" />
             <option value="$PROJECT_DIR$/matisse" />
             <option value="$PROJECT_DIR$/multiblutooth" />
+            <option value="$PROJECT_DIR$/mylibrary" />
             <option value="$PROJECT_DIR$/pracarouter" />
             <option value="$PROJECT_DIR$/pracmodule" />
             <option value="$PROJECT_DIR$/pracretrofit" />
@@ -26,7 +28,6 @@
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />
-        <option name="useQualifiedModuleNames" value="true" />
       </GradleProjectSettings>
     </option>
   </component>

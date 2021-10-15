@@ -1,5 +1,7 @@
 package com.haodong.structure2.structure.mysort;
 
+import com.haodong.structure2.structure.MyUtil;
+
 /**
  * created by linghaoDo on 2020-03-03
  * description:
@@ -11,13 +13,9 @@ public class InsertSort {
         if (a==null||a.length==0)
             return;
         for (int i=1;i<a.length;i++){
-            int j=i-1;// i 前面的数
-            int temp=a[i];
-            while (j>=0&&a[j]>temp){  // 条件
-                a[j+1]=a[j]; // 当前值向前移动
-                j--;
-            }
-            a[j+1]=temp; // 在插入初插入。
+          for (int j=i;j>0&& MyUtil.less(a[j],a[j-1]);j--){
+             MyUtil.swap(a,j,j-1);
+          }
         }
     }
 

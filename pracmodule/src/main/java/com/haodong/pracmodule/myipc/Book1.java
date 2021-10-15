@@ -45,17 +45,4 @@ public class Book1  implements Parcelable {
         dest.writeInt(price);
         dest.writeString(name);
     }
-    public static void main(String args[]){
-        try {
-            Class book=Class.forName("com.haodong.pracmodule.myipc.Book1");
-            // 封装values
-            Field[] fields = book.getDeclaredFields();
-            for(Field field:fields){
-                field.setAccessible(true);
-                System.out.println("field.getName()-->"+field.getName());
-            }
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        }
-    }
 }

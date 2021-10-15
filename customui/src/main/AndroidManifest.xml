@@ -12,6 +12,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity
+            android:name=".AnimationActivity"
+            android:exported="true" />
         <activity android:name=".XformadeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -19,9 +22,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".HorizontalRecyclerViewActivity">
-
-        </activity>
+        <activity android:name=".HorizontalRecyclerViewActivity"></activity>
         <activity android:name=".myviewpager.ViewPagerActivity2" />
         <activity android:name=".touchevent.TouchActivity" />
         <activity android:name=".MainActivity" />
@@ -38,7 +39,7 @@
         <activity android:name=".day24.BeciaActivity" />
         <activity android:name=".mynested.InventoryStatusActivity" />
         <activity android:name=".demo.TransFormActivity" />
-        <activity android:name=".demo.Transform2Activity"></activity>
+        <activity android:name=".demo.Transform2Activity" />
     </application>
 
 </manifest>
