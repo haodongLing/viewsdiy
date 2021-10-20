@@ -1,5 +1,9 @@
 package com.haodong.structure2.structure.link;
 
+import java.util.PriorityQueue;
+
+import androidx.core.app.NavUtils;
+
 /**
  * created by linghaoDo on 2020-04-07
  * description:
@@ -155,4 +159,119 @@ public class Questions {
         }
         return node1;
     }
+
+    /**
+     * 合并k个有序链表
+     * @param l1
+     * @param l2
+     * @return
+     */
+    ListNode mergeTwoLists(ListNode l1,ListNode l2){
+        ListNode dummy=new ListNode(-1),p=dummy;
+        ListNode p1=l1,p2=l2;
+        while (p1!=null&&p2!=null){
+            if(p1.val>p2.val){
+                p.next=p2;
+                p2=p2.next;
+            }else {
+                p.next=p1;
+                p1=p1.next;
+            }
+            p=p.next;
+        }
+        if (p1!= null){
+           p.next=p1;
+        }
+        if (p2!=null){
+            p.next=p2;
+        }
+        return dummy.next;
+
+    }
+    /**
+     * 对k个有序链表排序
+     */
+//    ListNode mergeKLists(ListNode[] listNodes){
+//        /*边界条件*/
+//        if (listNodes==null||listNodes.length==0){
+//            return null;
+//        }
+//        ListNode dummy=new ListNode(-1);
+//        ListNode p=dummy;
+////        PriorityQueue<ListNode>pq=new PriorityQueue<>(lists.length, (a, b)->(a.val - b.val));
+//
+//        return
+//
+//    }
+
+    ListNode getIntersectionNode(ListNode headA, ListNode headB){
+        ListNode p1=headA;
+        ListNode p2=headB;
+        while (p1!=p2){
+            if (p1==null)p1=headB;else {
+                p1=p1.next;
+            }
+            if (p2==null){
+                p2=headA;
+
+            }else {
+                p2=p2.next;
+            }
+        }
+        return p1;
+    }
+
+    public ListNode reverseKGroup(ListNode head, int k) {
+        if (head==null){
+            return null;
+        }
+        ListNode a,b;
+        a=b=head;
+        /*找到链表反转的区间*/
+        for (int i=0;i<k;i++){
+            if (b==null) return head;
+            b=b.next;
+        }
+        ListNode newHead=reverseLink(a,b);
+        a.next=reverseKGroup(b,k);
+        return newHead;
+
+    }
+
+    private ListNode reverseLink(ListNode a, ListNode b) {
+        ListNode pre,cur,next;
+        pre=null;
+        cur=next=a;
+        while (a!=b){
+            next=cur.next;
+            cur.next=pre;
+            pre=cur;
+            cur=next;
+        }
+        return pre;
+
+    }
+
+    public ListNode reverseLink(ListNode head){
+        if (head==null){
+            return null;
+        }
+        ListNode pre=null;
+        ListNode cur=head;
+        ListNode next=head;
+        while (head!=null){
+            next=cur.next;
+            cur.next=pre;
+            pre=cur;
+            cur=next;
+        }
+        return head;
+
+
+    }
+
+
+
+
+
 }

@@ -66,11 +66,11 @@ public class XformodeView extends View {
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
         canvas.drawColor(Color.GREEN);
-//        int layerID = canvas.saveLayer(0, 0, width * 2, height * 2, mPaint, Canvas.ALL_SAVE_FLAG);
+        int layerID = canvas.saveLayer(0, 0, width * 2, height * 2, mPaint, Canvas.ALL_SAVE_FLAG);
         canvas.drawBitmap(dstMap, 0, 0, mPaint);
         mPaint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC_IN));
         canvas.drawBitmap(srcMap, width / 2, height / 2, mPaint);
         mPaint.setXfermode(null);
-//        canvas.restoreToCount(layerID);
+        canvas.restoreToCount(layerID);
     }
 }
