@@ -2,6 +2,7 @@ package com.haodong.structure2.structure.mytree.question;
 
 import java.util.ArrayDeque;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Deque;
 import java.util.LinkedList;
 import java.util.List;
@@ -129,8 +130,7 @@ class Qustions {
             return 0;
         }
         int res = 0;
-        if (node.val == sum)
-            res += 1;
+        if (node.val == sum) res += 1;
         res += findPath(node.left, sum - node.val);
         res += findPath(node.right, sum - node.val);
         return res;
@@ -201,8 +201,7 @@ class Qustions {
 
     public List<List<Integer>> permute(int[] nums) {
         res = new ArrayList<>();
-        if (nums == null || nums.length == 0)
-            return res;
+        if (nums == null || nums.length == 0) return res;
         used = new boolean[nums.length];
         LinkedList<Integer> p = new LinkedList<>();
         generatePermutation(nums, 0, p);
@@ -236,8 +235,7 @@ class Qustions {
      */
     public List<List<Integer>> combine(int n, int k) {
         res = new ArrayList<List<Integer>>();
-        if (n <= 0 || k <= 0 || k > n)
-            return res;
+        if (n <= 0 || k <= 0 || k > n) return res;
         LinkedList<Integer> c = new LinkedList<>();
         generateCombinations(n, k, 1, c);
         return res;
@@ -256,5 +254,28 @@ class Qustions {
         return;
     }
 
+    /*============================================*/
+
+    /**
+     * 构造最大二叉树
+     * @param nums
+     * @return
+     */
+    TreeNode constructMaximumBinaryTree(int[] nums) {
+        if (nums == null || nums.length == 0) return null;
+        // 找到数组中的最大值
+        int maxVal = Integer.MIN_VALUE;
+        int index = 0;
+        for (int i = 0; i < nums.length; i++) {
+            if (nums[i] > maxVal) {
+                maxVal = nums[i];
+                index = i;
+            }
+        }
+        TreeNode root=new TreeNode(maxVal);
+        root.left=constructMaximumBinaryTree(Arrays.copyOfRange(nums,0,index));
+        root.right=constructMaximumBinaryTree(Arrays.copyOfRange(nums,index+1,nums.length-1));
+        return root;
+    }
 
 }
