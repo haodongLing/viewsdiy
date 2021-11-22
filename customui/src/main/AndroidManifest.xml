@@ -16,11 +16,7 @@
             android:name=".AnimationActivity"
             android:exported="true" />
         <activity android:name=".XformadeActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity android:name=".HorizontalRecyclerViewActivity"></activity>
         <activity android:name=".myviewpager.ViewPagerActivity2" />
@@ -40,6 +36,13 @@
         <activity android:name=".mynested.InventoryStatusActivity" />
         <activity android:name=".demo.TransFormActivity" />
         <activity android:name=".demo.Transform2Activity" />
+        <activity android:name=".dispatching.TouchActivity" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>

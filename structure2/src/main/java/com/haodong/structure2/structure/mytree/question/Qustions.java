@@ -278,4 +278,83 @@ class Qustions {
         return root;
     }
 
+
+    /**
+     * 112 路径总和
+     */
+    class Solution1 {
+        public boolean hasPathSum(TreeNode root, int targetSum) {
+            if (root==null){
+                return false;
+            }
+                // 判断当前节点是否是叶子节点
+            if (root.right==null&&root.left==null){
+                return targetSum==0;
+            }
+            if (hasPathSum(root.left,targetSum-root.val)){
+                return true;
+            }
+            if (hasPathSum(root.right,targetSum-root.val)){
+                return true;
+            }
+            return false;
+        }
+    }
+
+    /**
+     * 111 到叶子节点的最小深度
+     */
+    class Soution2{
+        public int minDepth(TreeNode root) {
+            if (root==null){
+                return 0;
+            }
+            if(root.left == null && root.right == null) {
+                return 1;
+            }
+            int ans = Integer.MAX_VALUE;
+            if(root.left != null) {
+                ans = Math.min(minDepth(root.left), ans);
+            }
+            if(root.right != null) {
+                ans = Math.min(minDepth(root.right), ans);
+            }
+            return ans + 1;
+        }
+    }
+
+    /**
+     * 257. 二叉树的所有路径
+     */
+    class Solution3 {
+
+        List<String> res = new ArrayList<>();    // 存储结果
+        LinkedList<String> path = new LinkedList<>();  // 存储单个路径
+
+        public List<String> binaryTreePaths(TreeNode root) {
+            traverse(root);
+            return res;
+        }
+
+        // 二叉树的遍历框架
+        public void traverse(TreeNode root) {
+            if (root == null) {
+                return;
+            }
+            // 前序遍历位置
+            path.add(String.valueOf(root.val));
+            // 到叶子节点就返回
+            if (root.left == null && root.right == null) {
+                for (int i=0;i<path.size();i++){
+                    
+                }
+                // 添加到结果中
+                res.add(String.join("->", path));
+            }
+            traverse(root.left);
+            traverse(root.right);
+            path.removeLast();
+        }
+    }
+
 }

@@ -1,6 +1,7 @@
 package com.haodong.study.pracarouter;
 
 import androidx.appcompat.app.AppCompatActivity;
+
 import android.os.Bundle;
 import android.view.View;
 
@@ -17,6 +18,12 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 ARouter.getInstance().build(Constance.ACTIVITY_URL_SECOND).navigation(MainActivity.this);
+            }
+        });
+        findViewById(R.id.btn_jump_to_third).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ARouter.getInstance().build(Constance.ACTIVITY_THIRD).withBoolean("needLogin", true).navigation(MainActivity.this);
             }
         });
     }

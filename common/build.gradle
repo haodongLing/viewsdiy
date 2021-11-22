@@ -44,8 +44,8 @@ dependencies {
     api 'io.reactivex.rxjava2:rxjava:2.2.3'
     api 'com.squareup.retrofit2:retrofit:2.3.0'
     api 'com.squareup.retrofit2:converter-gson:+'
-    implementation "com.squareup.okhttp3:okhttp:$rootProject.ext.okhttp3"
-    debugImplementation "com.squareup.okhttp3:logging-interceptor:$rootProject.ext.okhttp3"
+    api "com.squareup.okhttp3:okhttp:$rootProject.ext.okhttp3"
+    debugApi "com.squareup.okhttp3:logging-interceptor:$rootProject.ext.okhttp3"
 //    classpath 'com.jakewharton:butterknife-gradle-plugin:10.1.0'
     api "com.jakewharton:butterknife:$rootProject.ext.butterknifeVersion"
 //    annotationProcessor "com.jakewharton:butterknife-compiler:$rootProject.ext.butterknifeVersion"

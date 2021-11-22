@@ -84,38 +84,89 @@ public class QuickSort {
         return left;
     }
 
-    public static void quickSort(int[] arr, int left, int right) {
-        if (arr == null || left >= right || arr.length <= 1) {
-            return;
+    class Soution2 {
+        public int[] sort(int[] sourceArray) throws Exception {
+            // 对 arr 进行拷贝，不改变参数内容
+            int[] arr = Arrays.copyOf(sourceArray, sourceArray.length);
+
+            return quickSort(arr, 0, arr.length - 1);
         }
-        int mid = partition(arr, left, right);
-        quickSort(arr, left, mid);
-        quickSort(arr, mid + 1, right);
+
+        public int[] quickSort(int[] arr, int left, int right) {
+            if (arr == null || left >= right || arr.length <= 1) {
+                return arr;
+            }
+            int mid = partition(arr, left, right);
+            quickSort(arr, left, mid - 1);
+            quickSort(arr, mid + 1, right);
+            return arr;
+
+        }
+
+
+        private int partition(int[] arr, int left, int right) {
+            // 设定基准值（pivot）
+            int pivot = left;
+            // pivot+1
+            int index = pivot + 1;
+            // i <= right
+            for (int i = index; i <= right; i++) {
+                if (arr[i] < arr[pivot]) {
+                    swap(arr, i, index);
+                    index++;
+                }
+            }
+            swap(arr, pivot, index - 1);
+            return index - 1;
+        }
+
+        private void swap(int[] arr, int i, int j) {
+            int temp = arr[i];
+            arr[i] = arr[j];
+            arr[j] = temp;
+        }
     }
 
-    public static int partition2(int[] arr, int left, int right) {
-        int temp = arr[left];
-        while (left < right) {
-            while (left < right && temp < arr[right]) {
-                --right;
-
+    class Soution3{
+        public  void quickSort(int[] arr, int left, int right) {
+            if (arr == null || left >= right || arr.length <= 1) {
+                return;
             }
-            if (left < right) {
-                arr[left] = arr[right];
-                ++left;
-            }
-            while (left < right && temp > arr[left]) {
-                ++left;
-            }
-            if (left < right) {
-                arr[right] = arr[left];
-                --right;
-            }
+            int mid = partition(arr, left, right);
+            quickSort(arr, left, mid);
+            quickSort(arr, mid + 1, right);
         }
-        arr[left] = temp;
-        return left;
+
+        public  int partition2(int[] arr, int left, int right) {
+            int temp = arr[left];
+            while (left < right) {
+                while (left < right && temp < arr[right]) {
+                    --right;
+
+                }
+                if (left < right) {
+                    arr[left] = arr[right];
+                    ++left;
+                }
+                while (left < right && temp > arr[left]) {
+                    ++left;
+                }
+                if (left < right) {
+                    arr[right] = arr[left];
+                    --right;
+                }
+            }
+            arr[left] = temp;
+            return left;
+
+        }
+    }
+
+    class Soution4{
 
     }
+
+
 
     /**
      * 选择排序 遍历后面
@@ -142,15 +193,14 @@ public class QuickSort {
      * @param arr
      */
     public static void insertSort(int[] arr) {
-        if (arr == null)
-            return;
+        if (arr == null) return;
         int temp;
 
-        for (int i = 0; i < arr.length ; i++) {
+        for (int i = 0; i < arr.length; i++) {
             temp = arr[i];
-            int j = i ;
-            while (j >0 && arr[j-1] > temp) {
-                arr[j] = arr[j-1];
+            int j = i;
+            while (j > 0 && arr[j - 1] > temp) {
+                arr[j] = arr[j - 1];
                 j--; // 精髓
             }
             arr[j] = temp;

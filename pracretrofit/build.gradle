@@ -37,4 +37,6 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.0'
     implementation project(':common')
+    api "com.squareup.okhttp3:okhttp:$rootProject.ext.okhttp3"
+    debugApi "com.squareup.okhttp3:logging-interceptor:$rootProject.ext.okhttp3"
 }
