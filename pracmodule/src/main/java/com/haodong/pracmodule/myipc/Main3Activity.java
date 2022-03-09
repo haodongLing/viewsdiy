@@ -28,13 +28,6 @@ public class Main3Activity extends AppCompatActivity implements View.OnClickList
     @Override
     public void onClick(View v) {
         final int id = v.getId();
-        if (id == R.id.btn_start_remote_service) {
-            stopService(new Intent(this, RemoteService.class));
 
-        } else if (id == R.id.btn_start_local_service) {
-            startService(new Intent(this, LocalService.class));
-        } else if (id == R.id.btn_close_local_service) {
-            stopService(new Intent(this, LocalService.class));
-        }
     }
 }

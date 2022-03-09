@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.haodong.pracmodule">
+
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
@@ -9,23 +10,18 @@
     <uses-permission android:name="android.permission.NFC" />
 
     <application
+        android:name=".MyApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:name="com.haodong.pracmodule.MyApplication"
         android:theme="@style/AppTheme">
-        <activity android:name=".myretrofit.RetrofitActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity android:name=".myhook.Hook1Activity">
-
-        </activity>
+        <activity
+            android:name=".myipc.ClientBinderActivity"
+            android:exported="true" />
+        <activity android:name=".myretrofit.RetrofitActivity"></activity>
+        <activity android:name=".myhook.Hook1Activity"></activity>
         <activity android:name=".myipc.Main3Activity" />
         <activity android:name=".myipc.IPC1Activity" />
         <activity android:name=".recyclerviewstudy.Recycler2Activity" />
@@ -42,8 +38,18 @@
             android:exported="true"
             android:process=":provider" />
 
-        <activity android:name=".memory.Main3Activity"></activity>
+        <activity android:name=".memory.Main3Activity" />
         <activity android:name=".memory.MemoryLeakActivity" />
+        <activity android:name=".myipc.LocalActivity">
+
+        </activity>
+        <activity android:name=".binder.client.ClientActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
 
         <service android:name=".myipc.MessageService">
             <intent-filter>
@@ -53,14 +59,17 @@
             </intent-filter>
         </service>
         <service
-            android:name=".myipc.LocalService"
-            android:enabled="true"
-            android:exported="true" />
+            android:name=".myipc.WebService"
+            android:process=":webProcess" />
         <service
-            android:name=".myipc.RemoteService"
-            android:enabled="true"
+            android:name=".binder.server.RemoteService"
             android:exported="true"
-            android:process=":RemoteProcess" />
+            android:process=":remote">
+            <intent-filter>
+                <action android:name="com.enjoy.binder" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </service>
     </application>
 
 </manifest>

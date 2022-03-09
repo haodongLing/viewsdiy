@@ -10,14 +10,14 @@ import java.util.List;
  * <p>
  * version:
  */
-public class BookManagerImpl extends IBookManager.Stub {
-    @Override
-    public void addBook(Book1 book) throws RemoteException {
-
-    }
-
-    @Override
-    public List<Book1> getBookList() throws RemoteException {
-        return null;
-    }
-}
+//public class BookManagerImpl extends IBookManager.Stub {
+//    @Override
+//    public void addBook(Book1 book) throws RemoteException {
+//
+//    }
+//
+//    @Override
+//    public List<Book1> getBookList() throws RemoteException {
+//        return null;
+//    }
+//}

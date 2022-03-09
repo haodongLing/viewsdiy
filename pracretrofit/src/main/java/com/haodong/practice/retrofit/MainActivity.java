@@ -1,14 +1,19 @@
 package com.haodong.practice.retrofit;
 
 import androidx.appcompat.app.AppCompatActivity;
+import okhttp3.Authenticator;
 import okhttp3.Call;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
+import okhttp3.Route;
 
 import android.os.Bundle;
 
 import com.example.haodong.common.util.LogUtil;
+
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 import java.io.IOException;
 
@@ -20,6 +25,14 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         OkHttpClient httpClient = new OkHttpClient();
+
+        new OkHttpClient.Builder().proxyAuthenticator(new Authenticator() {
+            @Nullable
+            @Override
+            public Request authenticate(@Nullable Route route, @NotNull Response response) throws IOException {
+                return null;
+            }
+        });
 
         String url = "https://www.baidu.com/";
         Request getRequest = new Request.Builder()

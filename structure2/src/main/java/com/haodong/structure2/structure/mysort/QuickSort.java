@@ -19,15 +19,15 @@ public class QuickSort {
 
     }
 
-    public static void sort2(int arr[], int low, int hign) {
+    public static void sort2(int arr[], int low, int high) {
         if (arr == null || arr.length <= 0) {
             return;
         }
-        if (low >= hign) {
+        if (low >= high) {
             return;
         }
         int left = low;
-        int right = hign;
+        int right = high;
         int key = arr[left];
         while (left < right) {
             while (left < right && arr[right] >= key) {
@@ -44,7 +44,7 @@ public class QuickSort {
         swap(arr, low, left);
         System.out.println("Sorting: " + Arrays.toString(arr));
         sort2(arr, low, left - 1);
-        sort2(arr, left + 1, hign);
+        sort2(arr, left + 1, high);
 
     }
 
@@ -104,20 +104,40 @@ public class QuickSort {
         }
 
 
-        private int partition(int[] arr, int left, int right) {
-            // 设定基准值（pivot）
-            int pivot = left;
-            // pivot+1
-            int index = pivot + 1;
-            // i <= right
-            for (int i = index; i <= right; i++) {
-                if (arr[i] < arr[pivot]) {
-                    swap(arr, i, index);
-                    index++;
+        private int partition(int[] arr, int lo, int hi) {
+            int i=lo,j=hi+1;
+            int v=arr[lo];
+            while (true){
+                while (arr[++i]<v){
+                    if (i==hi){
+                        break;
+                    }
                 }
+                while (v>arr[--j]){
+                    if (j==lo){
+                        break;
+                    }
+                }
+                if (i>=j){
+                    break;
+                }
+                swap(arr,i,j);
             }
-            swap(arr, pivot, index - 1);
-            return index - 1;
+            swap(arr,lo,j);
+            return j;
+//            // 设定基准值（pivot）
+//            int pivot = left;
+//            // pivot+1
+//            int index = pivot + 1;
+//            // i <= right
+//            for (int i = index; i <= right; i++) {
+//                if (arr[i] < arr[pivot]) {
+//                    swap(arr, i, index);
+//                    index++;
+//                }
+//            }
+//            swap(arr, pivot, index - 1);
+//            return index - 1;
         }
 
         private void swap(int[] arr, int i, int j) {

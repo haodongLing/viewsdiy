@@ -25,6 +25,10 @@ public interface IBookManager extends IInterface {
     void addBook(Book1 book1);
 
     /*server端*/
+
+    /**
+     * 服务端使用
+     */
     public static abstract class Stub extends Binder implements IBookManager {
         public static final String DESCRIPTOR = "com.haodong.pracmodule.myipc.IBookManager";
         public static final int TRANSACTION_getBook = FIRST_CALL_TRANSACTION;
@@ -92,6 +96,9 @@ public interface IBookManager extends IInterface {
 
     }
 
+    /**
+     * 客户端使用
+     */
     public static class Proxy implements IBookManager {
         private IBinder mRemote;
 

@@ -9,7 +9,9 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.os.Handler;
 import android.os.Message;
+
 import androidx.appcompat.app.AppCompatActivity;
+
 import android.os.Bundle;
 import android.widget.ImageView;
 
@@ -23,10 +25,15 @@ import java.net.URL;
 import javax.net.ssl.HttpsURLConnection;
 
 import io.reactivex.Observable;
+import io.reactivex.ObservableEmitter;
+import io.reactivex.ObservableOnSubscribe;
+import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.annotations.NonNull;
+import io.reactivex.disposables.Disposable;
 import io.reactivex.functions.Consumer;
 import io.reactivex.functions.Function;
+import io.reactivex.plugins.RxJavaPlugins;
 import io.reactivex.schedulers.Schedulers;
 
 /**
@@ -43,38 +50,58 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         myHandler = new MyHandler<>(this);
         imageView = findViewById(R.id.image);
+        RxJavaPlugins.setOnObservableAssembly(new Function<Observable, Observable>() {
+            @Override
+            public Observable apply(@NonNull Observable observable) throws Exception {
+//                if (observable.ge)
+                return observable;
+            }
+        });
 
         // 开启线程
         /*2. 获取 bitmap*/
         /*3. 添加水印*/
         /*4. 设置图片*/
-        Observable.just("http://ww1.sinaimg.cn/large/006fCF3Ply1g2o5jxkphzj30go0b475q.jpg")
-                .map(new Function<String, Bitmap>() {
-                    @Override
-                    public Bitmap apply(String s) throws Exception {
-                        URL url = new URL(s);
-                        HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
-                        InputStream inputStream = urlConnection.getInputStream();
-                        Bitmap bitmap = BitmapFactory.decodeStream(inputStream);
-                        return bitmap;
-                        /*添加水印*/
-                    }
-                })
-                .map(new Function<Bitmap, Bitmap>() {
-                    @Override
-                    public Bitmap apply(@NonNull Bitmap bitmap) throws Exception {
-                        bitmap = createWatermark(bitmap, "RxJava2.0");
-                        return bitmap;
-                    }
-                })
-                .subscribeOn(Schedulers.io())
+        Observable.create(new ObservableOnSubscribe<String>() {
+            @Override
+            public void subscribe(@NonNull ObservableEmitter<String> emitter) throws Exception {
+                emitter.onNext("http://ww1.sinaimg.cn/large/006fCF3Ply1g2o5jxkphzj30go0b475q.jpg");
+            }
+        }).map(new Function<String, Bitmap>() {
+            @Override
+            public Bitmap apply(String s) throws Exception {
+                URL url = new URL(s);
+                HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
+                InputStream inputStream = urlConnection.getInputStream();
+                Bitmap bitmap = BitmapFactory.decodeStream(inputStream);
+                bitmap = createWatermark(bitmap, "RxJava2.0");
+                return bitmap;
+                /*添加水印*/
+            }
+        }).subscribeOn(Schedulers.io())
+//                .subscribeOn(Schedulers.newThread())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Consumer<Bitmap>() {
-                    @Override
-                    public void accept(Bitmap bitmap) throws Exception {
-                        imageView.setImageBitmap(bitmap);
-                    }
-                });
+                .subscribe(new Observer<Bitmap>() {
+            @Override
+            public void onSubscribe(@NonNull Disposable d) {
+
+            }
+
+            @Override
+            public void onNext(@NonNull Bitmap bitmap) {
+                imageView.setImageBitmap(bitmap);
+            }
+
+            @Override
+            public void onError(@NonNull Throwable e) {
+
+            }
+
+            @Override
+            public void onComplete() {
+
+            }
+        });
 //        new Thread(new Runnable() {
 //            @Override
 //            public void run() {
@@ -97,6 +124,40 @@ public class MainActivity extends AppCompatActivity {
 //                }
 //            }
 //        }).start();
+
+        Observable.create(new ObservableOnSubscribe<String>() {
+            @Override
+            public void subscribe(@NonNull ObservableEmitter<String> emitter) throws Exception {
+                emitter.onNext("ss");
+            }
+        }).map(new Function<String, Object>() {
+
+            @Override
+            public Object apply(@NonNull String s) throws Exception {
+                return "ss";
+            }
+        }).subscribe(new Observer<Object>() {
+
+            @Override
+            public void onSubscribe(@NonNull Disposable d) {
+
+            }
+
+            @Override
+            public void onNext(@NonNull Object o) {
+
+            }
+
+            @Override
+            public void onError(@NonNull Throwable e) {
+
+            }
+
+            @Override
+            public void onComplete() {
+
+            }
+        });
 
 
     }

@@ -17,12 +17,14 @@
             <option value="$PROJECT_DIR$/designmode" />
             <option value="$PROJECT_DIR$/facade" />
             <option value="$PROJECT_DIR$/feature-hook" />
+            <option value="$PROJECT_DIR$/lib_webview" />
             <option value="$PROJECT_DIR$/matisse" />
             <option value="$PROJECT_DIR$/multiblutooth" />
             <option value="$PROJECT_DIR$/mylibrary" />
             <option value="$PROJECT_DIR$/pracarouter" />
             <option value="$PROJECT_DIR$/pracmodule" />
             <option value="$PROJECT_DIR$/pracretrofit" />
+            <option value="$PROJECT_DIR$/practice.rxjava" />
             <option value="$PROJECT_DIR$/remoteapp" />
             <option value="$PROJECT_DIR$/structure2" />
           </set>

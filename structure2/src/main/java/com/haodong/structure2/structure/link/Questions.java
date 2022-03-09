@@ -1,5 +1,6 @@
 package com.haodong.structure2.structure.link;
 
+import java.util.Comparator;
 import java.util.PriorityQueue;
 
 import androidx.core.app.NavUtils;
@@ -259,16 +260,153 @@ public class Questions {
         ListNode pre=null;
         ListNode cur=head;
         ListNode next=head;
-        while (head!=null){
+        while (cur!=null){
             next=cur.next;
             cur.next=pre;
             pre=cur;
             cur=next;
         }
-        return head;
+        return pre;
 
 
     }
+
+
+    /**
+     * 删除倒数第N个节点
+     * @param head
+     * @param n
+     * @return
+     */
+    public ListNode removeNthFromEnd(ListNode head, int n) {
+
+        ListNode dummy=new ListNode(-1);
+        dummy.next=head;
+        ListNode x=findFromEnd(dummy,n+1);
+        x.next=x.next.next;
+        return dummy.next;
+    }
+
+//    /**
+//     *
+//     * @param head
+//     * @param k 倒数第n+1个节点
+//     * @return
+//     */
+//    public ListNode findFromEnd(ListNode head, int k){
+//        ListNode p1=head;
+//        for (int i=0;i<k;i++){
+//            p1=p1.next;
+//
+//        }
+//        ListNode p2=head;
+//        while (p1!=null){
+//            p2=p2.next;
+//            p1=p1.next;
+//        }
+//        return p2;
+//    }
+
+    /**
+     * 合并k条链表
+     * @param lists
+     * @return
+     */
+    public ListNode mergeLists(ListNode[] lists){
+        if (lists.length==0){
+            return null;
+        }
+        ListNode dummy=new ListNode(-1);
+        ListNode p=dummy;
+        PriorityQueue<ListNode>pq=new PriorityQueue<>(lists.length, new Comparator<ListNode>() {
+            @Override
+            public int compare(ListNode o1, ListNode o2) {
+                return o1.val- o2.val;
+            }
+        });
+        for (ListNode head:lists){
+            if (head!=null){
+                pq.add(head);
+            }
+        }
+        while (!pq.isEmpty()){
+                ListNode node=pq.poll();
+                p.next=node;
+                if (node.next!=null){
+                    pq.add(node.next);
+                }
+                p=p.next;
+        }
+        return dummy.next;
+
+    }
+
+    /**
+     * 找到倒数第k个节点
+     * @param head
+     * @param k
+     * @return
+     */
+   public ListNode findFromEnd(ListNode head,int k){
+        ListNode p1=head;
+        ListNode p2=head;
+        for (int i=0;i<k;i++){
+            while (p1!=null){
+                p1=p1.next;
+            }
+        }
+        while (p1!=null){
+            p1=p1.next;
+            p2=p2.next;
+        }
+        return p2;
+    }
+
+    /**
+     * 链表的排序
+     */
+    public class Solution {
+        /**
+         *
+         * @param head ListNode类 the head node
+         * @return ListNode类
+         */
+        public ListNode sortInList (ListNode head) {
+            // write code here
+            if (head == null || head.next == null)
+                return head;
+            // 使用快慢指针寻找链表的中点
+            ListNode fast = head.next, slow = head;
+            while (fast != null && fast.next != null) {
+                slow = slow.next;
+                fast = fast.next.next;
+            }
+            ListNode tmp = slow.next;
+            slow.next = null;
+            // 递归左右两边进行排序
+            ListNode left = sortInList(head);
+            ListNode right = sortInList(tmp);
+            // 创建新的链表
+            ListNode h = new ListNode(0);
+            ListNode res = h;
+            // 合并 left right两个链表
+            while (left != null && right != null) {
+                // left  right链表循环对比
+                if (left.val < right.val) {
+                    h.next = left;
+                    left = left.next;
+                } else {
+                    h.next = right;
+                    right = right.next;
+                }
+                h = h.next;
+            }
+            // 最后添加未对比的链表部分判断左链表是否为空
+            h.next = left != null ? left : right;
+            return res.next;
+        }
+    }
+
 
 
 

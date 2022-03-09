@@ -4,7 +4,7 @@ include ':multiblutooth'
 include  ':designmode',
         ':matisse',
         ':common',
-//        ':practice.rxjava',
+        ':practice.rxjava',
         ':pracretrofit',
 //        ':zerenlian',
         ':facade',
@@ -18,3 +18,4 @@ include  ':designmode',
 //':unifypayexample'
 include ':mylibrary'
 include ':feature-hook'
+include ':lib_webview'

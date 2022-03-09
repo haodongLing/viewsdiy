@@ -40,10 +40,11 @@ public class ColorTrackTextView extends TextView {
         this(context, null);
     }
 
+    // 反射
     public ColorTrackTextView(Context context, @Nullable AttributeSet attrs) {
         this(context, attrs, 0);
     }
-
+    // 主题style
     public ColorTrackTextView(Context context, @Nullable AttributeSet attrs,
                               int defStyleAttr) {
         super(context, attrs, defStyleAttr);

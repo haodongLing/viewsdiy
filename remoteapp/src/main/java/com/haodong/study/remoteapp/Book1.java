@@ -13,6 +13,9 @@ public class Book1 implements Parcelable {
     public int bookId;
     public String bookName;
 
+    public Book1() {
+    }
+
     protected Book1(Parcel in) {
         bookId = in.readInt();
         bookName = in.readString();
